@@ -1,0 +1,109 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Connectivitat de sistemes operatius amb màquines virtuals}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.45\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\tableofcontents
+\newpage
+
+\section{NAT}
+En aquest mode, VirtualBox crea un router virtual entre la màquina i l'amfitrió. Això permet la connexió de les màquines virtuals amb l'amfitrió i internet, però no entre màquines virtuals, ja que cada una té el seu router. 
+
+Ambdues màquines tenen la mateixa IP \texttt{10.0.2.15} i el gateway per comunicar-se amb l'exterior és \texttt{10.0.2.2}.
+
+\mygraphic{imatges/a1.png}
+\mygraphic{imatges/a2.png}
+\mygraphic{imatges/a3.png}
+\mygraphic{imatges/a4.png}
+
+\newpage
+\section{Xarxa NAT}
+La xarxa NAT crea una xarxa on les diverses màquines virtuals que en formin part es poden veure les unes a les altres. A més també crea un router virtual que permet la connexió a internet.
+
+La màquina d'Ubuntu té la IP \texttt{10.0.2.4} i la de Windows la \texttt{10.0.2.15}. El gateway que perment comunicar-se amb l'amfitrió i internet té l'adreça \texttt{10.0.2.1}.
+
+\mygraphic{imatges/b1.png}
+\mygraphic{imatges/b2.png}
+\mygraphic{imatges/b3.png}
+\mygraphic{imatges/b4.png}
+\mygraphic{imatges/b5.png}
+
+\newpage
+\section{Adaptador Pont}
+Aquest mode crea un adaptador virtual de xarxa, que mostra les màquines virtuals com un dispositiu més en la xarxa on estigui connectat l'amfitrió.
+
+Windows té l'adreça \texttt{192.168.1.142} i l'Ubuntu té la \texttt{192.168.1.143}. La màquina amfitriona té l'adreça \texttt{192.168.1.156}.
+
+El gateway és el router de la xarxa local, com passaria amb qualsevol dispositiu que s'hi connectés, amb IP \texttt{192.168.1.1}.
+
+\mygraphic{imatges/c1.png}
+\mygraphic{imatges/c2.png}
+\mygraphic[width=0.9\textwidth]{imatges/c3.png}
+\mygraphic{imatges/c4.png}
+\mygraphic{imatges/c5.png}
+\mygraphic{imatges/c6.png}
+
+\newpage
+\section{Xarxa Interna}
+La Xarxa Interna connecta entre si les màquines que en formen part, sense cap mena de connexió amb el món exterior. No crea cap router ni servidor DHCP, així que hem d'assignar manualment les adreces IP.
+
+A Ubuntu li assignarem la IP \texttt{10.0.0.1} i a Windows la  \texttt{10.0.0.2}.
+
+\mygraphic{imatges/d1.png}
+\mygraphic{imatges/d2.png}
+\mygraphic{imatges/d3.png}
+\mygraphic{imatges/d4.png}
+\mygraphic{imatges/d5.png}
+\mygraphic{imatges/d6.png}
+
+\section{Carpeta Compartida}
+Creem una carpeta a l'amfitrió i la compartim amb totes dues màquines virtuals. A Ubuntu ens apareixerà com una partició més i a Windows com una unitat de xarxa.
+
+\mygraphic[height=0.4\textheight]{imatges/f0.png}
+\mygraphic[height=0.4\textheight]{imatges/f1.png}
+\mygraphic[height=0.4\textheight]{imatges/e1.png}
+\mygraphic[height=0.4\textheight]{imatges/e2.png}
+
+
+\end{document}

@@ -1,0 +1,54 @@
+\ProvidesPackage{proven}[2022/09/17]
+
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+
+\newcommand*{\modul}[1]{\gdef\@modulNum{#1}% \gdef\@modulNom{#2}
+}
+\newcommand*{\@modulNum}
+
+\newcommand*{\subtittle}{\gdef\@subtitle{#1}
+}
+\newcommand*{\@subtittle}
+
+
+\renewcommand*{\maketitle} {
+	\begin{titlepage}
+		\centering
+		\includegraphics*[width=0.15\textwidth]{provencana_color.pdf}
+		\par\vspace{0.5cm}
+		
+		{\scshape\Large Institut Provençana \par}
+		
+		\vspace{1cm}
+		
+		{\itshape\Large \@subtittle \par}
+		{\bfseries\LARGE \@title \par}
+		
+		\vspace{1cm}
+		
+		{\scshape\large Mòdul \@modulNum : \par}
+		{\scshape\Large \@modulNum \par}
+		
+		\vspace{0.5cm}
+	
+		{\scshape\normalsize Unitat Formativa 1: \par}
+		{\scshape\large Instal·lació, Configuració \\ i Explotació del Sistema Informàtic\par}
+		
+		\vfill
+		{\Large\itshape \@author \par}
+		
+		\vfill
+		\@date
+	\end{titlepage}
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{1.5cm}
+\fancyhead[L]{\includegraphics*[height=\headheight]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul 1: Sistemes Informàtics}\\
+	{\scshape\footnotesize Act 1 - Sistemes de Numeració}\\
+	{\scshape\small \@author}}
+
+\endinput

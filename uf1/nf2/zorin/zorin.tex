@@ -1,0 +1,142 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Instal·lació de distribució de Linux}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages i Iris Hidalgo Palomino}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=0.9\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\tableofcontents
+\newpage
+
+\section{Introducció}
+Zorin OS és un sistema operatiu basat en Ubuntu.
+
+Fa servir l'entorn d'escriptori GNOME, bastant personalitzat per tal d'afavorir la transició des de Windows o macOS a un entorn Linux.
+També ofereix versions lleugeres, per a ordinadors vells, que usen XFCE.
+
+Ofereix també una versió de pagament, que inclou més opcions de personalització, programari preinstal·lat i suport tècnic.
+
+Nosaltres instal·larem l'edició gratuïta amb entorn gràfic GNOME. La versió més recent és la 16, que es basa en Ubuntu 20.04.
+
+\newpage
+\section{Instal·lació de Zorin OS}
+\subsection{Creació de la màquina virtual}
+Creem una nova màquina virtual, que anomenarem \texttt{zorin}. 
+\mygraphic{imatges/a1.png}
+\mygraphic{imatges/a2.png}
+
+\newpage
+Seguim les recomanacions del VirtualBox per la RAM i el disc dur.
+\mygraphic{imatges/a3.png}
+\mygraphic{imatges/a4.png}
+
+\newpage
+Fem servir el format VDI, ja que no tenim previst utilitzar aquesta màquina en altres programes de virtualització. També triem que s'allotgi dinàmicament, així el fitxer del disc creixerà a mesura que ho necessiti.
+\mygraphic[height=0.4\textheight]{imatges/a5.png}
+\mygraphic[height=0.4\textheight]{imatges/a6.png}
+
+\newpage
+Com hem dit abans, fem cas a les recomanacions del VirtualBox respecte el tamany de disc dur i RAM.
+
+En la nostra carpeta d'usuari trobem \texttt{VirtualBox VMs}, on es guarden les màquines virtuals de VirtualBox. La nostra, que hem anomenat \texttt{zorin} té una carpeta amb aquest nom, i a dins el fitxer de disc dur \texttt{zorin.vdi}
+\mygraphic{imatges/a7.png}
+
+\newpage
+Una vegada tenim la màquina creada, anem a la pestanya d'emmagatzematge, a la configuració, i seleccionem l'ISO que hem descarregat a l'escriptori.
+\mygraphic{imatges/a8.png}
+\mygraphic{imatges/a9.png}
+\mygraphic{imatges/a10.png}
+\mygraphic{imatges/a11.png}
+
+Un cop inserida la ISO, podem iniciar la màquina i començar amb l'instal·lació.
+
+\newpage
+\subsection{Instal·lació del Sistema}
+
+Arranquem la màquina i seleccionem l'opció d'instal·lar Zorin OS, prement la tecla \texttt{enter}.
+\mygraphic{imatges/a12.png}
+\mygraphic[height=0.45\textheight]{imatges/a13.png}
+
+\newpage
+Esprem que s'acabi la comprovació de la imatge de disc, així ens assegurem que està intacta.
+\mygraphic[height=0.44\textheight]{imatges/a14.png}
+
+Triem l'anglès, que ja ens apareix seleccionat, i procedim a Instal·lar Zorin OS.
+\mygraphic[height=0.44\textheight]{imatges/a15.png}
+
+Escollim la distribució del teclat, en el nostre cas és un teclat en espanyol d'Espanya, sense cap variació.
+\mygraphic[height=0.4\textheight]{imatges/a16.png}
+
+Estem d'acord amb descarregar actualitzacions durant la instal·lació, programari de tercers i amb participar en el cens, per tant deixarem les caselles marcades com ens les hem trobat.
+\mygraphic[height=0.4\textheight]{imatges/a17.png}
+
+Com que el disc dur de la màquina l'acabem de crear nosaltres no té res per preservar, així que podem deixar que l'esborri tot.
+
+Tampoc el farem servir per cap altre sistema operatiu, per tant les particions que ens proposa ens van bé.
+Si en volguéssim unes altres, hem de seleccionar l'opció de \texttt{something else}.
+\mygraphic[height=0.45\textheight]{imatges/a18.png}
+\mygraphic[height=0.45\textheight]{imatges/a19.png}
+
+Triem el fus horari i la regió. És important triar la regió correctament, ja que així els paquets es descarregaran de servidors més propers.
+\mygraphic[height=0.45\textheight]{imatges/a20.png}
+
+Introduïm les nostres credencials. Per aquesta demostració farem servir un Usuari anomenat \texttt{usuari} i \texttt{1234} de contrasenya, però una instal·lació real hauria de fer servir una contrasenya més segura.
+
+Com ja hem vist, la seguretat del nostre compte no és la major de les nostres preocupacions, per tant també seleccionarem l'inici de sessió automàtic.
+
+Tampoc farem servir Active Directory, per tant deixerem la casella desseleccionada.
+\mygraphic[height=0.45\textheight]{imatges/a21.png}
+
+\newpage
+Esperem que la instal·lació acabi i reiniciem quan ens ho demani.
+\mygraphic[height=0.45\textheight]{imatges/a22.png}
+\mygraphic[height=0.45\textheight]{imatges/a23.png}
+
+\newpage
+Com que el mitjà d'instal·lació era virtual (una imatge de disc), quan el sistema ja l'ha expulsat no cal fer cap altre pas, no hi ha un disc físic que calgui treure.
+
+Premem \texttt{enter} per reiniciar al sistema ja instal·lat.
+\mygraphic[height=0.44\textheight]{imatges/a24.png}
+\mygraphic[height=0.44\textheight]{imatges/a25.png}
+
+
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{parskip}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=\headheight]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul 1: Sistemes Informàtics}\\
+	{\scshape\footnotesize Activitat - Codificació de Caràcters}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=0.9\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+% Format enunciat
+\newcounter{activitatnumero}
+\setcounter{activitatnumero}{0}
+\newcommand{\enunciat}[1]{
+	\stepcounter{activitatnumero}
+	{\large\arabic{activitatnumero}}. #1
+	\par
+}
+
+\begin{document}
+\include{portada.tex}
+
+% \tableofcontents
+
+
+\enunciat{A continuació es dona la posició de 6 caràcters corresponents a la taula ASCII reduïda. Amb l'ajuda de les tecles “ALT + Teclat Numèric” troba els caràcters corresponents. Emplena la resta de columnes de la taula.}
+\enunciat{A continuació es dona la posició de 6 caràcters corresponents a la taula ASCII reduïda. Amb l'ajuda de les tecles “ALT + Teclat Numèric” troba els caràcters corresponents. Emplena la resta de columnes de la taula.}
+
+\end{document}

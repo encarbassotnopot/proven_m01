@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{parskip}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=\headheight]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul 1: Sistemes Informàtics}\\
+	{\scshape\footnotesize Pràctica Optativa - Instal·lació de Windows Server 2016}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=0.9\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+Creem una nova màquina virtual. L'anomenem "Windows Server 2016" i la fem amb 4 GB de RAM. La resta d'opcions les deixarem amb els valors per defecte.
+\mygraphic{imatges/1.png}
+\mygraphic{imatges/2.png}
+\mygraphic{imatges/3.png}
+\mygraphic{imatges/4.png}
+\mygraphic{imatges/5.png}
+\mygraphic{imatges/6.png}
+\mygraphic{imatges/7.png}
+Seleccionem l'ISO de Windows Server i l'inserim.
+\mygraphic[height=0.45\textheight]{imatges/8.png}
+Deixem l'idioma en anglès, però triem l'espanyol pel teclat i continuem.
+\mygraphic[height=0.45\textheight]{imatges/9.png}
+\mygraphic[height=0.45\textheight]{imatges/10.png}
+\newpage
+Seleccionem la versió d'escriptori estàndard i acceptem la llicència.
+\mygraphic[height=0.45\textheight]{imatges/11.png}
+\mygraphic[height=0.45\textheight]{imatges/12.png}
+\newpage
+No tenim res instal·lat en aquest disc dur, per tant triem la segona opció. Seleccionem l'espai lliure i continuem.
+\mygraphic[height=0.45\textheight]{imatges/13.png}
+\mygraphic[height=0.45\textheight]{imatges/14.png}
+\newpage
+Esperem que s'acabi la instal·lació i reiniciem. Després seguim les instruccions.
+\mygraphic[height=0.45\textheight]{imatges/15.png}
+\mygraphic[height=0.45\textheight]{imatges/16.png}
+\mygraphic{imatges/17.png}
+\mygraphic{imatges/18.png}
+\mygraphic{imatges/19.png}
+\mygraphic{imatges/20.png}
+
+\end{document}

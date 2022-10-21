@@ -1,0 +1,197 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{parskip}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=\headheight]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul 1: Sistemes Informàtics}\\
+	{\scshape\footnotesize Pràctica Guiada - Creació de Màquines Virtuals}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=0.9\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\tableofcontents
+\newpage
+
+\section{Instal·lació de VirtualBox a la màquina amfitriona}
+
+Comprovem que VirtualBox, les addicions i els mòduls de kernel ja estan instal·lats amb la següent ordre:
+\texttt{pacman -Q virtualbox virtualbox-guest-iso virtualbox-host-modules-arch}.
+
+Si no ho estiguessin ho podríem fer amb l'ordre \texttt{pacman -S} i els noms dels paquets.
+\mygraphic{imatges/a0.png}
+
+\newpage
+\section{Instal·lació d'XP}
+Creem una nova màquina virtual, l'anomenarem \texttt{xp-practica} i augmentarem a 512 MB dels 192 MB de RAM que VirtualBox suggereix per defecte.
+\mygraphic{imatges/a1.png}
+\mygraphic{imatges/a2.png}
+\mygraphic{imatges/a3.png}
+
+Creem un disc dur tipus VDI, allotjat dinàmicament, de 50 GB (en comptes dels 10 GB que surten per defecte).
+\mygraphic{imatges/a4.png}
+\mygraphic{imatges/a5.png}
+\mygraphic{imatges/a6.png}
+\mygraphic{imatges/a7.png}
+
+Una vegada acabat el procés de creació, seleccionem la màquina que acabem de crear i anem a configuració, pestanya Emmagatzematge i seleccionem el disc, que està buit. Pitgem la icona de la dreta i triem l'ISO de Windows XP.
+\mygraphic{imatges/a21.png}
+\mygraphic{imatges/a22.png}
+\mygraphic{imatges/a24.png}
+\mygraphic{imatges/a25.png}
+
+Ara ja podem iniciar la màquina i començar amb la instal·lació. Seleccionem l'espai sense particionar i el formatem amb NTFS i seguim els passos de l'instal·lador.
+\mygraphic{imatges/b8.png}
+\mygraphic{imatges/b9.png}
+\mygraphic{imatges/b10.png}
+\mygraphic[height=0.45\textheight]{imatges/b11.png}
+\mygraphic[height=0.45\textheight]{imatges/b12.png}
+\mygraphic[height=0.45\textheight]{imatges/b13.png}
+\mygraphic[height=0.45\textheight]{imatges/b14.png}
+\mygraphic[height=0.45\textheight]{imatges/b15.png}
+\mygraphic[height=0.45\textheight]{imatges/b16.png}
+\mygraphic[height=0.45\textheight]{imatges/b17.png}
+\mygraphic[height=0.45\textheight]{imatges/b18.png}
+\mygraphic[height=0.45\textheight]{imatges/b19.png}
+
+Amb la instal·lació feta, ja podem treure el disc.
+\mygraphic[height=0.45\textheight]{imatges/b28.png}
+\mygraphic{imatges/b30.png}
+\mygraphic{imatges/b29.png}
+
+\subsection{Clonació de la màquina}
+Fem clic dret a la nostra màquina i seleccionem clonar. Ens estan bé les opcions per defecte.
+\mygraphic{imatges/c23.png}
+\mygraphic[height=0.45\textheight]{imatges/c24.png}
+\mygraphic{imatges/c25.png}
+\mygraphic{imatges/c26.png}
+\mygraphic{imatges/c27.png}
+
+\subsection{Exportació}
+Tornem a fer clic dret a la nostra màquina, però aquesta vegada seleccionarem exportar. També ens estan bé les opcions per defecte.
+\mygraphic[height=0.45\textheight]{imatges/d30.png}
+\mygraphic{imatges/d32.png}
+\mygraphic{imatges/d33.png}
+
+\newpage
+\section{Instal·lació d'Ubuntu}
+Canonical ja no ofereix els checksums MD5 de les versions més recents d'Ubuntu, només els SHA256, per tant farem servir aquest últim algoritme.
+Descarreguem el fitxer \texttt{SHA256SUMS}, que conté les signatures per les ISOs de la versió 22.04, al mateix directori on prèviament ja hem descarregat l'ISO que volem validar.
+
+Com que aquest arxiu conté els hashes de les versions d'escriptori i la de servidor, ens dona un error, ja que no pot trobar la segona imatge, però el que a nosaltres ens importa és que aconsegueix verificar la primera.
+\mygraphic{imatges/e00.png}
+
+El procediment per crear la màquina és el mateix que hem descrit abans amb Windows. Posarem de nom \texttt{ubuntu-practica}, 4 GB de ram i 50 de disc dur. 
+\mygraphic{imatges/e01.png}
+\mygraphic{imatges/e02.png}
+\mygraphic{imatges/e03.png}
+\mygraphic{imatges/e04.png}
+\mygraphic{imatges/e05.png}
+\mygraphic{imatges/e06.png}
+\mygraphic{imatges/e07.png}
+\mygraphic{imatges/e08.png}
+\mygraphic{imatges/e09.png}
+\mygraphic{imatges/e10.png}
+\mygraphic{imatges/e11.png}
+
+Ara ja ho tenim tot a punt per a començar la instal·lació.
+\mygraphic{imatges/f00.png}
+\mygraphic{imatges/f01.png}
+\mygraphic[height=0.45\textheight]{imatges/f02.png}
+\mygraphic[height=0.45\textheight]{imatges/f03.png}
+\mygraphic[height=0.45\textheight]{imatges/f04.png}
+\mygraphic[height=0.45\textheight]{imatges/f05.png}
+\mygraphic[height=0.45\textheight]{imatges/f06.png}
+\mygraphic[height=0.45\textheight]{imatges/f07.png}
+\mygraphic[height=0.45\textheight]{imatges/f08.png}
+\mygraphic[height=0.45\textheight]{imatges/f09.png}
+\mygraphic[height=0.45\textheight]{imatges/f11.png}
+
+\newpage
+Una vegada hem reiniciat, procedim a instal·lar \texttt{gparted}, però no sense abans assegurar-nos que tenim l'última versió dels paquets ja instal·lats.
+
+\texttt{apt update} per refrescar les llistes de paquets i \texttt{apt upgrade} per actualitzar els que tinguin disponibles noves versions. Finalment ja podem donar l'ordre d'\texttt{apt install gparted}.
+\mygraphic[height=0.45\textheight]{imatges/f12.png}
+\mygraphic[height=0.45\textheight]{imatges/f13.png}
+\mygraphic[height=0.45\textheight]{imatges/f14.png}
+
+\subsection{Snapshot}
+A la barra de menú, seleccionem \texttt{Machine} i \texttt{Take Snapshot}. El nom per defecte ens està bé i premem \texttt{OK}
+\mygraphic{imatges/f15.png}
+\mygraphic{imatges/f17.png}
+\mygraphic{imatges/f18.png}
+
+\subsection{Exportació}
+Com hem fet abans amb l'XP, clic dret sobre la màquina i exportar.
+\mygraphic{imatges/f19.png}
+\mygraphic{imatges/f20.png}
+\mygraphic{imatges/f21.png}
+\mygraphic{imatges/f22.png}
+
+\newpage
+\section{Guest Additions i carpeta compartida}
+Creem la carpeta \texttt{host} al directori home del nostre usuari i a dins un fitxer de text, per ara buit, que anomenarem \texttt{shared.txt}.
+\mygraphic{imatges/g1.png}
+
+\subsection{Windows XP}
+Inserim les Guest Additions. Quan obrim la unitat \texttt{D:} ja s'executa automàticament l'instal·lador, i seguim les instruccions. Una vegada acabada, reiniciem la màquina.
+\mygraphic[height=0.45\textheight]{imatges/g2.png}
+\mygraphic[height=0.45\textheight]{imatges/g3.png}
+\mygraphic[height=0.45\textheight]{imatges/g4.png}
+\mygraphic[height=0.45\textheight]{imatges/g5.png}
+\mygraphic[height=0.45\textheight]{imatges/g6.png}
+\mygraphic[height=0.45\textheight]{imatges/g7.png}
+\mygraphic[height=0.45\textheight]{imatges/g8.png}
+Una vegada reiniciada, podem accedir a la carpeta que hem creat anteriorment, que apareixerà com una unitat de xarxa compartida amb lletra \texttt{Z:}. I a dins, el fitxer shared.txt, on escriurem "Modificat des de Windows XP".
+També podrem configurar el porta-retalls i l'arrossegament de fitxers bidireccional.
+\mygraphic{imatges/g9.png}
+\mygraphic[height=0.45\textheight]{imatges/g10.png}
+\mygraphic[height=0.45\textheight]{imatges/g11.png}
+\mygraphic[height=0.45\textheight]{imatges/g12.png}
+
+\subsection{Ubuntu}
+Inserim també les Guest Additions. En aquest cas, no se'ns han executat automàticament, per tant ho farem nosaltres. \texttt{./autorun.sh} per executar l'script que no ho ha automàticament. Posem la nostra contrasenya i esperem que acabi la instal·lació. Una vegada finalitzada reiniciem.
+\mygraphic[height=0.45\textheight]{imatges/h1.png}
+\mygraphic[height=0.45\textheight]{imatges/h2.png}
+\mygraphic[height=0.45\textheight]{imatges/h3.png}
+\mygraphic[height=0.45\textheight]{imatges/h4.png}
+Aprofitem aquest impàs per compartir la carpeta.
+\mygraphic[height=0.45\textheight]{imatges/h5.png}
+Ens trobarem que \texttt{root} i els membres del grup \texttt{vboxsf} tenen tots els permisos d'aquesta carpeta, però la resta d'usuaris no en té cap. Ho solucionarem afegint el nostre usuari al grup, amb  l'ordre \texttt{usermod -aG vboxsf eina}.
+\mygraphic[height=0.44\textheight]{imatges/h6.png}
+\mygraphic[height=0.44\textheight]{imatges/h7.png}
+Ara que ja hi tenim accés, podem editar el fitxer \texttt{shared.txt}, on trobarem la línia que hem afegit des de Windows. Escriurem "Modificat des d'Ubuntu" i el desarem.
+Finalment, també activarem el porta-retalls i l'arrossegament bidireccional de fitxers.
+\mygraphic[height=0.45\textheight]{imatges/h8.png}
+\mygraphic[height=0.45\textheight]{imatges/h10.png}
+\mygraphic[height=0.45\textheight]{imatges/h11.png}
+
+\newpage
+\section{Canvi d'UUID}
+La manera de clonar un disc i que tingui un UUID diferent de l'original, és amb l'ordre \texttt{vboxmanage clonemedium}. Aquesta pren com a argument el nom del disc que volem clonar i el nom que volem donar al clon.
+\mygraphic{imatges/i1.png}
+
+\end{document}

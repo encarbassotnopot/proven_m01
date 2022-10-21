@@ -1,0 +1,283 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+
+\usepackage{array} % Per ajuntar cel·les de la taula
+\usepackage{calc}
+\usepackage{changepage} % Per poder canviar l'amplada del text en la resposta
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage{mathtools}
+
+\newenvironment{resposta}
+	{\begin{adjustwidth}{3em}{2em}}
+	{\end{adjustwidth}}
+
+%% Entreliniats
+\setlength{\jot}{5pt}
+\linespread{1.5}
+\setlength{\parindent}{0em}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=\headheight]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul 1: Sistemes Informàtics}\\
+	{\scshape\footnotesize Act 1 - Sistemes de Numeració}\\
+	{\scshape\small Eina Coma Bages}}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\includegraphics*[width=0.15\textwidth]{provencana_color.pdf}
+	\par\vspace{0.5cm}
+
+	{\scshape\Large Institut Provençana \par}
+
+	\vspace{1cm}
+	
+	{\itshape\Large Activitat 1 \par}
+	{\bfseries\LARGE Sistemes de Numeració \par}
+	
+	\vspace{1cm}
+
+	{\scshape\large Mòdul 1: \par}
+	{\scshape\Large Sistemes Informàtics \par}
+
+	\vspace{0.5cm}
+	
+	{\scshape\normalsize Unitat Formativa 1: \par}
+	{\scshape\large Instal·lació, Configuració \\ i Explotació del Sistema Informàtic\par}
+
+	\vfill
+	{\Large\itshape Eina Coma Bages\par}
+	
+	\vfill
+	Curs 2022/2023
+
+\end{titlepage}
+
+\textsc{{\large 1.}  Descompassar el número octal 3565 segons el Teorema Fonamental de la Numeració:}
+\vspace{-5pt}
+\begin{gather*}
+	3565_8 = 3\cdot8^3 + 5\cdot8^2 + 6\cdot8^1 + 5\cdot8^0 = \\
+	= 3\cdot(2^3)^3 + 5\cdot(2^3)^2 + 6\cdot(2^3)^1 + 5\cdot(2^3)^0 = \\
+	= 3\cdot2^9 + 5\cdot2^6 + 6\cdot2^3 + 5\cdot2^0 = \\
+	= 3\cdot512 + 5\cdot64 + 6\cdot8 + 5\cdot1 = \\
+	= 1536 + 320 + 485 + 5 = 1909 
+\end{gather*}
+
+\textsc{{\large 2.} Quants números binaris diferents podem codificar amb 5 bits?}
+
+\begin{resposta}
+	Amb 5 bits disposem de 5 dígits que poden prendre dos valors (0 o 1) cada un, per tant ens tenim $2^5$ o 32 combinacions diferents.
+\end{resposta}
+\vspace{1em}
+
+\textsc{{\large 3.}  Quin és el número més gran que podem representar amb 6 bits?}
+
+\begin{resposta}
+	Amb 6 bits el nombre més gran que podem expressar és 111111. De la mateixa manera que amb 5 bits, teníem $2^5$ nombres diferents, amb 6 bits en tenim $2^6$ o 64. Com que comencem a comptar des de 0, això vol dir que el més gran és 63.
+
+	Ho podem comprovar convertint-lo a decimal:
+	$2^5+2^4+2^3+2^2+2^1+2^0 = 32+16+8+4+2+1 = 63$
+\end{resposta}
+
+\pagebreak
+
+\textsc{{\large 4.}  Resoldre les següents conversions}
+
+\begin{resposta}
+	La conversió entre octal i binari i hexadecimal i binari és senzilla, ja que les bases 8 i 16 són potències de 2. Cada dígit d'octal es pot substituir directament per 3 de binari ($8 = 2^3$), i cada xifra d'hexadecimal per 4 ($16 = 2^4$).
+\end{resposta}
+
+\begin{center}
+	\begin{tabular}{c c c c c}
+		\cline{1-2} \cline{4-5}
+		Oct i Hex & Binari && Hex & Binari \\
+		\cline{1-2} \cline{4-5}
+		0 & 0000 & & 8 & 1000 \\
+		\cline{1-2} \cline{4-5}
+		1 & 0001 & & 9 & 1001 \\
+		\cline{1-2} \cline{4-5}
+		2 & 0010 & & A & 1010 \\
+		\cline{1-2} \cline{4-5}
+		3 & 0011 & & B & 1011 \\
+		\cline{1-2} \cline{4-5}
+		4 & 0100 & & C & 1100 \\
+		\cline{1-2} \cline{4-5}
+		5 & 0101 & & D & 1101 \\
+		\cline{1-2} \cline{4-5}
+		6 & 0110 & & E & 1110 \\
+		\cline{1-2} \cline{4-5}
+		7 & 0111 & & F & 1111 \\
+		\cline{1-2} \cline{4-5}
+	\end{tabular}
+\end{center}
+
+\begin{resposta}
+	Per fer la conversió des de decimal o cap a decimal no tenim més remei que calcular-la.
+\end{resposta}
+
+\vspace{1em}
+\begin{center}
+		\begin{tabular}{
+			!{\vrule width 1.4pt} *{3}{c|} c
+			!{\vrule width 1.4pt} *{3}{c|} c
+			!{\vrule width 1.4pt} *{2}{c|} c
+			!{\vrule width 1.4pt} *{9}{c|} c
+			!{\vrule width 1.4pt}}
+			\noalign{\hrule height 1.4pt}
+			\multicolumn{4}{!{\vrule width 1.4pt}c!{\vrule width 1.4pt}}{Decimal} &
+			\multicolumn{4}{c!{\vrule width 1.4pt}}{Hexadecimal} &
+			\multicolumn{3}{c!{\vrule width 1.4pt}}{Octal} &
+			\multicolumn{10}{c!{\vrule width 1.4pt}}{Binari} \\
+			\noalign{\hrule height 1.4pt}
+			0 & 2 & 0 & 0 & 0 & 0 & C & 8 & 3 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+			\noalign{\hrule}
+			0 & 2 & 2 & 3 & 0 & 0 & D & F & 3 & 3 & 7 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+			\noalign{\hrule}
+			0 & 0 & 8 & 7 & 0 & 0 & 5 & 7 & 1 & 2 & 7 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 \\
+			\noalign{\hrule}
+			0 & 1 & 6 & 7 & 0 & 0 & A & 7 & 2 & 4 & 7 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 1 \\
+			\noalign{\hrule height 1.4pt}
+		\end{tabular}
+\end{center}
+\begin{resposta}
+	\setlength{\jot}{-5pt}
+	$200_{10}$: \vspace{-1em}
+	\begin{align*}
+		200/16 &= 12, \textnormal{ residu } 8; \\
+		12/16 &= 0, \textnormal{ residu } 12 \textnormal{ (C, en hexadecimal)} \\
+		200_{10} &= C8_{16}
+	\end{align*}
+
+	\vspace{-0.5em}
+
+	$DF_{16}$: $13\cdot16+15=208+15=223_{10}$ \\
+	$57_{16}$: $5\cdot16+7=80+7=87_{10}$ \\
+	$A7_{16}$: $10\cdot16+7=160+7=167_{10}$
+\end{resposta}
+
+\vspace{1em}
+\begin{center}
+		\begin{tabular}{
+			!{\vrule width 1.4pt} *{3}{c|} c
+			!{\vrule width 1.4pt} *{3}{c|} c
+			!{\vrule width 1.4pt} *{2}{c|} c
+			!{\vrule width 1.4pt} *{9}{c|} c
+			!{\vrule width 1.4pt}}
+			\noalign{\hrule height 1.4pt}
+			\multicolumn{4}{!{\vrule width 1.4pt}c!{\vrule width 1.4pt}}{Decimal} &
+			\multicolumn{4}{c!{\vrule width 1.4pt}}{Hexadecimal} &
+			\multicolumn{3}{c!{\vrule width 1.4pt}}{Octal} &
+			\multicolumn{10}{c!{\vrule width 1.4pt}}{Binari} \\
+			\noalign{\hrule height 1.4pt}
+			0 & 0 & 6 & 0 & 0 & 0 & 3 & C & 0 & 7 & 4 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+			\noalign{\hrule}
+			0 & 0 & 9 & 1 & 0 & 0 & 5 & B & 1 & 3 & 3 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+			\noalign{\hrule}
+			0 & 0 & 4 & 8 & 0 & 0 & 3 & 0 & 0 & 6 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+			\noalign{\hrule}
+			0 & 0 & 6 & 3 & 0 & 0 & 3 & F & 0 & 7 & 7 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+			\noalign{\hrule height 1.4pt}
+	\end{tabular}
+\end{center}
+\begin{resposta}
+	\setlength{\jot}{-5pt}
+	$60_{10}$: \vspace{-1em}
+	\begin{align*}
+		60/16 &= 3, \textnormal{ residu } 12 \textnormal{ (C, en hexadecimal)}; \\
+		3/16 &= 0, \textnormal{ residu } 3 \\
+		60_{10} &= 3C_{16}
+	\end{align*}
+
+	\vspace{-0.5em}
+
+	$5B_{16}$: $5\cdot16+11=80+11=91_{10}$ \\
+	$30_{16}$: $3\cdot16+0=48_{10}$ \\
+	$3F_{16}$: $3\cdot16+15=48+15=63_{10}$
+\end{resposta}
+
+\vspace{1em}
+\begin{center}
+	\begin{tabular}{
+		!{\vrule width 1.4pt} *{3}{c|} c
+		!{\vrule width 1.4pt} *{3}{c|} c
+		!{\vrule width 1.4pt} *{2}{c|} c
+		!{\vrule width 1.4pt} *{9}{c|} c
+		!{\vrule width 1.4pt}}
+		\noalign{\hrule height 1.4pt}
+		\multicolumn{4}{!{\vrule width 1.4pt}c!{\vrule width 1.4pt}}{Decimal} &
+		\multicolumn{4}{c!{\vrule width 1.4pt}}{Hexadecimal} &
+		\multicolumn{3}{c!{\vrule width 1.4pt}}{Octal} &
+		\multicolumn{10}{c!{\vrule width 1.4pt}}{Binari} \\
+		\noalign{\hrule height 1.4pt}0 & 1 & 9 & 2 & 0 & 0 & C & 0 & 3 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+		\noalign{\hrule}
+		0 & 1 & 6 & 8 & 0 & 0 & A & 8 & 2 & 5 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 0\\
+		\noalign{\hrule}
+		  &   &   &   &   &   &   &   & 1 & 9 & 2 &   &   &   &   &   &   &   &   &   &  \\
+		\noalign{\hrule}
+		0 & 2 & 1 & 7 & 0 & 0 & D & 9 & 3 & 3 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 1\\
+		\noalign{\hrule height 1.4pt}
+\end{tabular}
+\end{center}
+\begin{resposta}
+	\setlength{\jot}{-5pt}
+	$192_{10}$: \vspace{-1em}
+	\begin{align*}
+		192/16 &= 12, \textnormal{ residu } 0; \\
+		12/16 &= 0, \textnormal{ residu } 12 \textnormal{ (C, en hexadecimal)} \\
+		192_{10} &= C0_{16}
+	\end{align*}
+
+	\vspace{-0.5em}
+
+	$A8_{16}$: $10\cdot16+8=160+8=168_{10}$ \\
+	La tercera fila no es pot resoldre, ja que el número 9 no existeix en octal.\\
+	$D9_{16}$: $13\cdot16+9=208+9=217_{10}$
+\end{resposta}
+
+\vspace{1em}
+\begin{center}
+	\begin{tabular}{
+		!{\vrule width 1.4pt} *{3}{c|} c
+		!{\vrule width 1.4pt} *{3}{c|} c
+		!{\vrule width 1.4pt} *{2}{c|} c
+		!{\vrule width 1.4pt} *{9}{c|} c
+		!{\vrule width 1.4pt}}
+		\noalign{\hrule height 1.4pt}
+		\multicolumn{4}{!{\vrule width 1.4pt}c!{\vrule width 1.4pt}}{Decimal} &
+		\multicolumn{4}{c!{\vrule width 1.4pt}}{Hexadecimal} &
+		\multicolumn{3}{c!{\vrule width 1.4pt}}{Octal} &
+		\multicolumn{10}{c!{\vrule width 1.4pt}}{Binari} \\
+		\noalign{\hrule height 1.4pt}
+		0 & 2 & 1 & 0 & 0 & 0 & D & 2 & 3 & 2 & 2 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 1 & 0\\
+		\noalign{\hrule}
+		0 & 2 & 1 & 3 & 0 & 0 & D & 5 & 3 & 2 & 5 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 1 & 0 & 1\\
+		\noalign{\hrule}
+		0 & 0 & 7 & 3 & 0 & 0 & 4 & 9 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 1\\
+		\noalign{\hrule}
+		0 & 1 & 6 & 9 & 0 & 0 & A & 9 & 2 & 5 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1\\
+		\noalign{\hrule height 1.4pt}
+\end{tabular}
+\end{center}
+\begin{resposta}
+	\setlength{\jot}{-5pt}
+	$210_{10}$: \vspace{-1em}
+	\begin{align*}
+		210/16 &= 13, \textnormal{ residu } 2; \\
+		13/16 &= 0, \textnormal{ residu } 13 \textnormal{ (D, en hexadecimal)} \\
+		210_{10} &= D2_{16}
+	\end{align*}
+	
+	\vspace{-0.5em}
+
+	$D5_{16}$: $13\cdot16+5=208+5=213_{10}$ \\
+	$49_{16}$: $4\cdot16+9=64+9=73_{10}$ \\
+	$A9_{16}$: $10\cdot16+9=160+9=169_{10}$
+\end{resposta}
+
+\end{document}
