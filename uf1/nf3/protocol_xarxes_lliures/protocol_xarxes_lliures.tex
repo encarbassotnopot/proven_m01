@@ -1,0 +1,156 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica 5.2}
+\newcommand{\actnom}{Configuració del protocol de xarxa \\ en sistemes operatius lliures mitjançant la línia de comandes}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{55pt}
+\addtolength{\topmargin}{-25pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Secció
+\titleformat{\enunciat}[runin]{\scshape}{\thesection.}{0.5em}{}
+
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.4\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\newcounter{activitat}
+\newcommand{\enunciat}[1]{\refstepcounter{activitat}
+\vspace{0.5em} {\large\textit\theactivitat.} {\textit{#1}} \vspace{0.5em}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+
+\include{portada.tex}
+\newpage
+
+\enunciat{Sol·licita la informació dels paràmetres de configuració de totes les targetes de xarxa instal·lades al teu sistema. Comprova si l'adaptador de la xarxa està en mode NAT.}
+
+\mygraphic{imatges/1.png}
+
+\enunciat{Sol·licita informació dels paràmetres de configuració de la targeta de xarxa Ethernet instal·lada al teu sistema}
+
+\mygraphic{imatges/2.png}
+
+\enunciat{Configura l'adaptador de la xarxa per estigui en mode pont (brigde). Torna a demanar la informació dels paràmetres de configuració de la targeta de xarxa Ethernet instal·lada al teu sistema. Han canviat els paràmetres de configuració de la targeta de xarxa? Per què?}
+
+\mygraphic{imatges/3.png}
+
+\enunciat{Desactiva i torna a activar la targeta de xarxa. Torna a demanar la informació dels paràmetres de configuració de la targeta de xarxa Ethernet. Han canviat els paràmetres de configuració de la targeta de xarxa? Per què?}
+
+\mygraphic{imatges/4.png}
+
+\newpage
+\enunciat{Configura manualment els paràmetres de configuració de la targeta de xarxa Ethernet des de la línia de comandes. Assigna una nova IP, que serà igual a l'antiga, però sumant 100 al quart octet (sempre i quan, la inicial, no sigui superior a 154, ja que si és així, seria major a 254). La resta de paràmetres han de quedar coherents als de la nova IP. Comprova si els canvis han tingut efecte.}
+
+\mygraphic{imatges/5.png}
+
+\newpage
+\enunciat{Afegeix una passarel·la (la adreça al router o gateway) als paràmetres de configuració de la targeta de xarxa Ethernet per tal de disposar de connexió externa (a Internet)}
+
+\mygraphic{imatges/6.png}
+
+\newpage
+\enunciat{Consulta les taules d'encaminament del teu host i interpreta un parell de línies.}
+
+\mygraphic{imatges/7.png}
+
+\enunciat{Consulta les taules arp del teu host}
+
+\mygraphic{imatges/8.png}
+
+\enunciat{Accedeix a l'arxiu de configuració de la xarxa d'Ubuntu i configura manualment els paràmetres de configuració de la targeta de xarxa Ethernet, assignant una nova IP estàtica, obtinguda de sumar 1 al quart octet de la IP antiga. La resta de paràmetres han de quedar coherents als de la nova IP, i has de disposar de connexió externa (a Internet).}
+
+El fitxer \texttt{/etc/network/interfaces} no existeix en instal·lacions modernes des que Ubuntu 17.10 va deprecar el paquet \texttt{ifupdown}.\footnote{\url{https://wiki.ubuntu.com/ArtfulAardvark/ReleaseNotes\#Network_configuration}}
+
+\enunciat{Comprova a l'ordre ifconfig, si els canvis han tingut efecte. Si no és així, restaura el servei de xarxa i tornar-lo a provar.}
+
+\enunciat{Comprova la connectivitat de la teva màquina amb la teva màquina amfitriona (la virtual haurà d'estar en mode pont) enviant-li 4 paquets de 64 bytes.}
+
+\mygraphic{imatges/11.png}
+
+\newpage
+\enunciat{Fes un ping a la adreça broadcast.}
+
+\mygraphic{imatges/12.png}
+
+\enunciat{Esbrina tots els routers pels quals passen els paquets TCP/IP fins a arribar al servidor de Google.}
+
+\mygraphic{imatges/13.png}
+
+\enunciat{Accedeix a l'arxiu de configuració de la xarxa d'Ubuntu i fes que el servidor DHCP del centre configuri els paràmetres de la targeta de xarxa Ethernet. Comprova amb l'ordre \textbf{ifconfig}, si els canvis han tingut efecte. Si no és així, restaura el servei de xarxa i tornar-lo a provar.}
+
+\enunciat{Quin és el nom del teu host? Canvia'l pel de “\textbf{ord4rtoctect\_IP}” on “\textbf{4rtoctect\_IP}” és el número corresponent al 4t octet de la IP del host.}
+
+\mygraphic{imatges/15.png}
+
+\enunciat{Configura com servidors DNS de la configuració TCP/IP, el servidors de noms de Google i Xtec.}
+
+\newpage
+\mygraphic{imatges/16.png}
+
+\enunciat{Fes un ping a la IP al host del teu company i al nom del mateix host del teu company. Què succeeix? Fes que el ping que fas al nom del host del teu company sigui excitós.}
+
+\mygraphic{imatges/17-1.png}
+\mygraphic{imatges/17-2.png}
+\mygraphic{imatges/17-3.png}
+
+\newpage
+\enunciat{Fes que al sol·licitar la pàgina web del Barça surti la pagina del R. Madrid, i a l'inrevés.}
+
+\mygraphic{imatges/18-1.png}
+\mygraphic{imatges/18-2.png}
+
+\enunciat{Visualitza l'arxiu \textbf{/etc/nsswitch.conf} i indica l'''ordre amb la qual el “resolver” fa la resolució de noms.}
+
+\enunciat{Què informació ens dona l'ordre \textbf{netstat}?}
+
+\enunciat{Indica cóm s'accedeix a les eines de configuració de la xarxa en mode gràfic.}
+
+\mygraphic{imatges/21-1.png}
+\mygraphic{imatges/21-2.png}
+
+\enunciat{Sol·licita la informació dels paràmetres de configuració de la targeta de xarxa inalàmbrica del teu sistema.}
+
+\mygraphic{imatges/22.png}
+
+\enunciat{Executa l'ordre \textbf{tracepath www.google.es}}
+
+\mygraphic{imatges/23.png}
+
+\newpage
+\enunciat{Executa l'ordre \textbf{nmap -n -sP -PE 192.168.19.1,254}. Què fa?}
+
+Envia a les IPs \texttt{192.168.19.1} i \texttt{192.168.19.254} una sol·licitud ICMP de tipus 8 (\texttt{-PE}), sense resoldre DNS (\texttt{-n}) ni escanejar-ne els ports (\texttt{-sP} àlies d'\texttt{-ns}, ja que el primer complia la mateixa funció en versions antigues).
+
+\end{document}
