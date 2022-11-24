@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica 5.3}
+\newcommand{\actnom}{Configuració de paràmetres de la Xarxa a Windows}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{55pt}
+\addtolength{\topmargin}{-25pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Secció
+\titleformat{\enunciat}[runin]{\scshape}{\thesection.}{0.5em}{}
+
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\newcounter{activitat}
+\newcommand{\enunciat}[1]{\refstepcounter{activitat}
+\vspace{0.5em} {\large\textit\theactivitat.} {\textit{#1}} \vspace{0.5em}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+
+\include{portada.tex}
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{ipconfig}
+Mostrem tota la informació  de les interficies de xarxa amb \texttt{ipconfig /all}.
+\mygraphic{imatges/1.png}
+
+\newpage
+\section{ping}
+Fem ping al DNS de Google \texttt{ping 8.8.8.8} fins que interrompem el programa (\texttt{-t}) i esperant com a màxim 500 ms (\texttt{-w 500}).
+\mygraphic{imatges/2.png}
+
+\newpage
+\section{arp}
+Mostrem la taula de resolució d'adreces MAC guardades a la memòria en cau \texttt{arp -a}.
+
+Esborrem una entrada (\texttt{arp -d 255.255.255.255}) i la tornem a crear (\texttt{arp -s 255.255.255.255 ff-ff-ff-ff-ff-ff}).
+\mygraphic{imatges/3.png}
+
+\newpage
+\section{tracert}
+Mirem la ruta que seguim per arribar al servidor DNS de Google \texttt{tracert 8.8.8.8}.
+\mygraphic{imatges/4.png}
+
+\newpage
+\section{route}
+Mostrem la taula d'enrutament amb \texttt{route PRINT}.
+\mygraphic{imatges/5.png}
+
+\newpage
+\section{netstat}
+Mostrem les estadístiques del protocol IPv4 amb \texttt{netstat -sp ip} i després les de la interfície d'ethernet amb \texttt{netstat -e}.
+\mygraphic{imatges/6.png}
+
+\newpage
+\section{nbtstat}
+Amb \texttt{nbtstat -A 10.0.2.15} imprimim la taula de noms dels ordinadors connectats al nostre mitjançant la nostra direcció IP.
+\mygraphic{imatges/7.png}
+
+\newpage
+\section{nslookup}
+Iniciem nslookup i hi entrem \texttt{google.com}. Per defecte es mostra només el registre A (adreça IPv4), però si introduïm l'ordre \texttt{set type=ANY} els podem veure tots (com l'AAAA per l'adreça IPv6, el registre MX per enviar correus o el NS per definir \textit{authoritative name servers}).
+\mygraphic{imatges/8.png}
+
+\end{document}
