@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Protocols de capa d'aplicació}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.45\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\tableofcontents
+\newpage
+
+\mygraphic[height=0.4\textheight]{imatges/e2.png}
+
+\section{Realitza les següents configuracions}
+Configura un servidor Web. Pots copiar el codi font d’un altre lloc web.
+\mygraphic{imatges/01.png}
+
+\textsc{Configura un servidor DNS per tal que resolgui noms URL’s a IP’s.}
+\mygraphic{imatges/02.png}
+
+\textsc{Configura un servidor DHCP,  per tal d’assignar IP’s de manera dinàmica en el rang 192.168.1.10 fins 192.168.1.15}
+\mygraphic{imatges/03.png}
+
+\textsc{Configura un client amb IP fixa: 192.168.1.5}
+\mygraphic{imatges/04.png}
+
+\textsc{Configura un client amb IP dinàmica assignada pel servidor DHCP}
+\mygraphic{imatges/05.png}
+
+\section{Explica el resultat de realitzar les següents comprovacions}
+\textsc{Fes, des de el client, un ping al \textbf{www.example.com} i \textbf{dhcp.example.com}}
+\mygraphic{imatges/05.png}
+\mygraphic{imatges/06.png}
+
+\textsc{Anul·la el servei DNS i torna a fer pings a \textbf{www.example.com} i \textbf{dhcp.example.com}. Ara fes  ping’s a les seves IP’s.}
+\mygraphic{imatges/07.png}
+\mygraphic{imatges/08.png}
+
+\textsc{Torna a activar el servei DNS i des de el navegador web (en Desktop/web browser) introduïu l’adreça \textbf{www.example.com}}
+\mygraphic{imatges/09.png}
+\mygraphic{imatges/10.png}
+
+\textsc{Novament, des de el navegador web (en Desktop/web browser) introduïu l’adreça \textbf{dhcp.example.com}}
+\mygraphic{imatges/11.png}
+\mygraphic{imatges/12.png}
+
+\end{document}
