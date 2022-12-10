@@ -16,7 +16,7 @@
 \newcommand{\ufnum}{1}
 \newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
 
-\newcommand{\acttipus}{Pràctica}
+\newcommand{\acttipus}{Pràctica 5.6}
 \newcommand{\actnom}{Protocols de capa d'aplicació}
 
 %% Entreliniats
@@ -35,7 +35,7 @@
 \addtolength{\textheight}{2cm}
 
 %% Comandes personalitzades
-\newcommand{\mygraphic}[2][height=0.45\textheight]{\begin{center}
+\newcommand{\mygraphic}[2][height=0.4\textheight]{\begin{center}
 		\centering\includegraphics[#1]{#2}\par
 \end{center}}
 
@@ -47,8 +47,6 @@
 \tableofcontents
 \newpage
 
-\mygraphic[height=0.4\textheight]{imatges/e2.png}
-
 \section{Realitza les següents configuracions}
 Configura un servidor Web. Pots copiar el codi font d’un altre lloc web.
 \mygraphic{imatges/01.png}
@@ -56,29 +54,38 @@ Configura un servidor Web. Pots copiar el codi font d’un altre lloc web.
 \textsc{Configura un servidor DNS per tal que resolgui noms URL’s a IP’s.}
 \mygraphic{imatges/02.png}
 
-\textsc{Configura un servidor DHCP,  per tal d’assignar IP’s de manera dinàmica en el rang 192.168.1.10 fins 192.168.1.15}
+\newpage
+\textsc{Configura un servidor DHCP, per tal d’assignar IP’s de manera dinàmica en el rang 192.168.1.10 fins 192.168.1.15}
 \mygraphic{imatges/03.png}
 
 \textsc{Configura un client amb IP fixa: 192.168.1.5}
 \mygraphic{imatges/04.png}
 
+\newpage
 \textsc{Configura un client amb IP dinàmica assignada pel servidor DHCP}
 \mygraphic{imatges/05.png}
 
+\newpage
 \section{Explica el resultat de realitzar les següents comprovacions}
-\textsc{Fes, des de el client, un ping al \textbf{www.example.com} i \textbf{dhcp.example.com}}
-\mygraphic{imatges/05.png}
-\mygraphic{imatges/06.png}
+\textsc{Connectivitat entre tots el dispositius de la xarxa}
 
-\textsc{Anul·la el servei DNS i torna a fer pings a \textbf{www.example.com} i \textbf{dhcp.example.com}. Ara fes  ping’s a les seves IP’s.}
+Tots els dispositius poden arribar als altres.
+\mygraphic[width=\textwidth]{imatges/06.png}
+
+\textsc{Fes, des de el client, ping al \textbf{www.example.com} i \textbf{dhcp.example.com}}
 \mygraphic{imatges/07.png}
-\mygraphic{imatges/08.png}
 
-\textsc{Torna a activar el servei DNS i des de el navegador web (en Desktop/web browser) introduïu l’adreça \textbf{www.example.com}}
+\newpage
+\textsc{Anul·la el servei DNS i torna a fer pings a \textbf{www.example.com} i \textbf{dhcp.example.com}. Ara fes  ping’s a les seves IP’s.}
+\mygraphic{imatges/08.png}
+Sense DNS no pot resoldre els hostnames, però amb les adreces IP es pot fer ping als servidors.
 \mygraphic{imatges/09.png}
+
+\newpage
+\textsc{Torna a activar el servei DNS i des de el navegador web (en Desktop/web browser) introduïu l’adreça \textbf{www.example.com} i \textbf{dhcp.example.com}}
 \mygraphic{imatges/10.png}
 
-\textsc{Novament, des de el navegador web (en Desktop/web browser) introduïu l’adreça \textbf{dhcp.example.com}}
+El navegador no mostra la pàgina, però la pantalla fa un flaix blanc (que no fa amb el servidor dns apagat), com si intentés carregar alguna cosa.
 \mygraphic{imatges/11.png}
 \mygraphic{imatges/12.png}
 

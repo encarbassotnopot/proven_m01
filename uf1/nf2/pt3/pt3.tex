@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[spanish]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica 3}
+\newcommand{\actnom}{Processos}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.4\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\newpage
+\textsc{1. Muestra todos los procesos que se están ejecutando en tu sistema.}
+\mygraphic{imatges/1.png}
+
+\textsc{2. Construye el árbol de procesos “vivos” del sistema en la versión jerárquica. desde su inicio. ¿Cuál es el proceso padre de todos los procesos? Explica la función de otros 4 procesos que aparezcan.}
+\mygraphic{imatges/2.png}
+
+
+\textsc{3. Muestra todos los procesos que se están ejecutando en tu sistema en forma interactiva.}
+\mygraphic{imatges/3.png}
+
+\newpage
+\textsc{6. Ejecuta en primer plano la orden “sleep 100”. ¿Puedes utilizar la línea de comandos para ejecutar órdenes, como por ejemplo, obtener la fecha (date)?. Ejecuta en primer plano la orden que deja inactiva la pantalla durante 200 segundos. Para el proceso, y devuélvelo al primer plano.}
+
+No es pot executar un altre ordre mentre s'està executant un altre programa en primer pla.
+\mygraphic[height=0.37\textheight]{imatges/5.png}
+\mygraphic[height=0.37\textheight]{imatges/6.png}
+
+
+\textsc{7. Ejecuta en primerz plano la orden que deja inactiva la pantalla durante 200 segundos. Para el proceso, y devuélvelo a segundo plano. ¿Puedes utilizar la línea de comandos para ejecutar otras órdenes?}
+
+Sí, amb el procés en segon pla es torna a mostrar la línia de comandaments.
+\mygraphic[height=0.35\textheight]{imatges/6a.png}
+
+
+\textsc{8. Ejecuta en segundo plano la orden que deja inactiva la pantalla durante 200 segundos. Trae el proceso al primer plano, páralo y devuélvelo a segundo plano.}
+
+\mygraphic[height=0.35\textheight]{imatges/7.png}
+
+
+\textsc{9. ¿Cuántos procesos se pueden ejecutar en primer plano? ¿Y cuántos procesos se pueden ejecutar en segundo plano?}
+
+En primer pla només se'n pot executar un, però en segon pla se'n poden executar tants com faci falta.
+
+\textsc{10. Ejecuta en primer plano la orden que deja inactiva la pantalla durante 200 segundos. Para el proceso. Ejecuta en primer plano la orden que deja inactiva la pantalla durante 210 segundos. Para el proceso. Mira la lista de tareas pendientes y el estado de cada proceso. Devuelve al primer plano el primer proceso y a segundo plano el segundo.}
+
+\mygraphic{imatges/8.png}
+
+\newpage
+\textsc{11. Ejecuta en primer plano la orden que deja inactiva la pantalla durante 300 segundos. Para el proceso. Mira la lista de tareas pendientes y el estado del proceso. Devuelve al primer plano el proceso. Mata el proceso. Mira la lista de tareas pendientes y el estado del proceso. Compara la información de las dos listas de tareas pendientes.}
+
+Quan aturem el procés i queda en segon pla, l'ordre \texttt{jobs} el mostra com a autrat. Si el matem, \texttt{jobs} el mostra com a finalitzat, i si tornem a llistar els processos en segon pla, veurem que ja no apareix.
+\mygraphic[height=0.35\textheight]{imatges/10.png}
+
+
+\end{document}
