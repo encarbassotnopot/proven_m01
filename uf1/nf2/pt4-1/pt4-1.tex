@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[spanish]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica 4.1}
+\newcommand{\actnom}{Administració d'usuaris en Linux}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.4\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\newpage
+\textsc{1. Visualitza l’arxiu que conté la base de dades del tots els usuaris registrats al sistema. Quants usuaris hi ha en total? Quantes comptes són del sistema? I del root? I d’usuaris personals? ¿quin rang d’UID’s tenen cada grup?}
+
+\textsc{2. Crea una carpeta anomenada “usuaris” dintre del directori personal del root. Fes una copia del arxiu que conté la base de dades del tots els usuaris registrats al sistema, amb el nom “usuaris.old.txt”.}
+
+\textsc{3. Visualitza l’arxiu que conté la base de dades del tots els grups registrats al sistema. Quants grups hi ha en total? Quants grups són del sistema? I del root? I d’usuaris personals? ¿quin rang d’GID’s tenen cada grup?}
+
+\textsc{4. Crea dintre de la carpeta “usuaris” una copia de l’arxiu que conté la base de dades del tots els grups registrats al sistema, amb el nom “grups.old.txt”.}
+
+\textsc{5. Visualitza l’arxiu que conté les contrasenyes encriptades dels usuaris i fes una copia d’aquest arxiu a la carpeta “usuaris” amb el nom “contrasenya\_usuaris.old.txt”.}
+
+\textsc{6. Visualitza l’arxiu que conté les contrasenyes encriptades dels grups i fes una copia d’aquest arxiu a la carpeta “usuaris” amb el nom “contrasenya\_grups.old.txt”.}
+
+
+\end{document}
