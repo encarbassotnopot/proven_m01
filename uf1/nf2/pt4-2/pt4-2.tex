@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[spanish]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{1}
+\newcommand{\ufnom}{Instal·lació, Configuració \\ i Explotació del Sistema Informàtic}
+
+\newcommand{\acttipus}{Pràctica 4.2}
+\newcommand{\actnom}{Gestió d'usuaris i grups a Windows}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.4\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\newpage
+\textsc{Crea dos usuaris, un anomenat usuari1cognom1 i altre anomenat usuari2cognom1, ací queda demostrat com s'utilitzen les tres caselles de l’usuari.}
+
+
+\begin{itemize}
+	\item \textsc{El usuari no pot canviar la contrasenya (usuari1cognom1)}
+	\mygraphic{imatges/1.png}
+	\newpage
+	\item \textsc{Compte deshabilitat (crea usuari3cognom1)}
+	\mygraphic{imatges/2.png}
+	\item \textsc{La contrasenya mai caduca (usuari2cognom1)}
+	\mygraphic{imatges/3.png}
+\end{itemize}
+
+\newpage
+\textsc{Quines condicions ha d'acomplir la contrasenya?}
+
+No pot tenir més de 14 caràcters.
+\mygraphic{imatges/4.png}
+
+\newpage
+\textsc{Creació de dos usuaris més amb les següents característiques i els següents grups}
+
+\begin{itemize}
+	\item \textsc{El usuari1 haurà de ser del tipus convidat(grup1)}
+	\mygraphic{imatges/5.png}
+	\newpage
+	\item \textsc{El usuari2 haurà de ser del tipus usuari avançat(grup1)}
+	\mygraphic{imatges/6.png}
+	\item \textsc{El usuari3 haurà de ser un duplicador(grup2)}
+	\mygraphic{imatges/7.png}
+	\item \textsc{El usuari4 haurà de ser administrador(grup2)}
+	\mygraphic{imatges/8.png}
+\end{itemize}
+
+\textsc{Crea una carpeta des de usuari2cognom1 amb un document de text dins sobre l'escriptori}
+\mygraphic{imatges/9.png}
+
+\newpage
+\textsc{Intenta'l modificar des de usuari1cognom1. Pots? Mostra el que apareix per pantalla}
+
+No, no es pot.
+\mygraphic{imatges/10.png}
+
+\textsc{Intenta'l modificar des de usuari2cognom1. Pots? Mostra el que apareix per pantalla}
+\mygraphic{imatges/11.png}
+
+
+\end{document}
