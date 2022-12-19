@@ -57,5 +57,101 @@
 
 \textsc{6. Visualitza l’arxiu que conté les contrasenyes encriptades dels grups i fes una copia d’aquest arxiu a la carpeta “usuaris” amb el nom “contrasenya\_grups.old.txt”.}
 
+\textsc{7. En sessió d’alumne crea una copia de seguretat dels arxius  /etc/passwd i /etc/group amb els noms /etc/passwd.old i /etc/group.old.  Dóna d’alta manualment la usuària “artesana”, editant  l’arxiu /etc/passwd i afegint una nova entrada per ella, amb les dades següents (compte, no estan en el mateix ordre que en l’arxiu /etc/passwd ):}
 
+\begin{itemize}
+\item Login: artesana
+\item Shell: /bin/bash
+\item UID:2000
+\item GID:2000
+\item Contrasenya: (en blanc)
+\item Gecos: (en blanc)
+\item Directori d’inici: /home/artesana
+\end{itemize}
+
+\textsc{8. Pots entrar en una nova sessió com artesana? Et demana contrasenya per autenticarte? Quin és el seu directori d’inici? Amb quina shell s’incorpora? Quina informació obté de la ordre id? S’ha produït alguna nova entrada en l’arxiu /etc/group? I en l’arxiu  /etc/shadow? Pots crear nous arxius? On els crea? Qui és el propietari? Qui és el grup propietari?}
+
+
+\textsc{9. Crea el directori d’inici (/home/artesana) per la usuària artesana. Quin és el seu propietari? Quins permisos té el directori  /home/artesana? Traspassa la propietat del directori d’inici a l’usaria i grup artesana. Quins permisos té ara el directori /home/artesana i quin és el seu propietari?}
+
+\textsc{10.  Dóna d’alta manualment al grup “artesana”, editant  l’arxiu /etc/group afegint la següent entrada per aquest grup:}
+Nom del grup: artesana
+Contrasenya: (en blanc)
+GID:2000
+
+\textsc{Et demana contrasenya per autenticarte quan canvies a la sessió d’artesana? Quin és el seu directori d’inici? Amb quina shell s’incorpora? S’ha produït alguna nova entrada en l’arxiu /etc/group? I en l’arxiu  /etc/shadow? Pots traspassar la propietat del directori d’inici al grup artesana. Pots crear nous arxius? On els crea? Qui és el propietari? Qui és el grup propietari?}
+
+\textsc{11.  Habilita la contrasenya per la usuària artesana. Edita l’arxiu /etc/passwd i afegeix una “x” en el camp contrasenya. Edita  l’arxiu /etc/shadow i afegeix una nova entrada al final de l’arxiu, copiant la mateixa línia que la corresponent a l’usuari alumne. Canvia  en la línia copiada, “alumne” per “artesana”. D’aquesta manera, artesana tindrà la mateixa contrasenya que alumne, i totes les opcions de seguretat respecte de la contrasenya que les que té la usuària alumne. Et demana contrasenya per autenticarte al canviar a sessió d’artesana?}
+
+\textsc{12.  Quin és el contingut del directori d’inici de la usuària artesana? Hi ha arxius ocults? Quines són les variables de entorn? Hi ha diferencies respecte del directori d’inici de l’usuari alumne? Copia el contingut del directori d’inici (inclosos els arxius ocults) a l’arxiu home.txt, i afegeix al final una línia de ratlles “----....----“. Copia del contingut del directori d’inici només els arxius ocults a l’arxiu ocult.txt, i afegeix al final una línia de ratlles “----....----“. Copia les variables de entorn i el seu contingut a l’arxiu var.txt,  i afegeix al final una línia de ratlles “--.....--“}
+
+\textsc{13. Copia els arxius de configuració de comptes que hi ha en el directori /etc/skel al directori /home/artesana Ara, quin és el contingut del directori d’inici de la usuària artesana? Hi ha arxius ocults? Quins són els propietaris? Hi ha diferencies respecte del contingut del directori d’inici de l’usuari alumne? Copia només els arxius ocults del directori d’inici a l’arxiu ocult.txt, sense esborrar el seu contingut actual i afegint al final una línia de ratlles “----....----“ (así pots comparar amb el contingut del que hi havia abans). Compara les diferencies per veure els nous arxius afegits. Traspassa la propietat dels nous arxius copiats a la usuària i grup artesana. Copia les variables de entorn i el seu contingut a l’arxiu var.txt, sense esborrar el seu contingut actual i afegeix al final una línia de ratlles “--.....--“ . Compara les diferencies de les variables de entorn abans i desprès de la modificació.}
+
+\textsc{14.  Canvia a la sessió de la usuària artesana i, copia les variables de entorn i el seu contingut, a l’arxiu var.txt, sense esborrar el seu contingut actual i afegint al final una línia de ratlles “--.....--“ . Compara les diferencies de les variables de entorn abans i desprès de l’inici de sessió.}
+
+\textsc{15.  Inclou manualment a la usuària “artesana” en els grups “àudio” i  “sudo” (seran grups secundaris) editant  l’arxiu /etc/group (la usuària “artesana” té com grup principal el grup “artesana”) Visualitza els resultats amb la comanda id.}
+
+\textsc{16. Investiga les conseqüències de col·locar en el camp corresponent a la contrasenya de la usuària artesana en l’arxiu /etc/passwd, els caràcters “*” i el caràcter blanc. Investiga les conseqüències de col·locar un “!” com primer caràcter en el camp corresponen a la contrasenya encriptada de la usuària artesana en l’arxiu /etc/shadow.}
+
+\textsc{17. Copia i explica tots el camps corresponents a un registre de l’arxiu /etc/passwd.}
+
+\textsc{18. Copia i explica tots el camps corresponents a un registre de l’arxiu /etc/group.}
+
+\textsc{19. Copia i explica tots el camps corresponents a un registre de l’arxiu /etc/shadow.}
+
+\textsc{20. Copia i explica tots el camps corresponents a un registre de l’arxiu  /etc/gshadow.}
+
+\textsc{21. Volem donar d’alta de manera automàtica a tots els alumnes de la classe de primer de dai. Genera un arxiu en text pla (codi ASCIII) anomenat alumnes\_dai1.txt, amb les dades dels alumnes de la classe. Cada fila a de contenir la informació de cada alumne, amb el mateix format que el que apareix en l’arxiu /etc/passwd (els mateixos camps, separats per “:”) Utilitza l’arxiu alumnes\_dai1.txt per donar d’alta automàtica a tots els alumnes de la classe i comprova els resultats.}
+
+\textsc{22. Crea des de la línia de comandes l’usuari dai1, amb contrasenya dai1dai. }
+
+\textsc{23. Mostra el valors que genera per defecte l’ordre useradd. Consulta el contigut de l’arxiu /etc/default/useradd. }
+
+\textsc{24. Fes una copia de seguretat dels arxius continguts en el directori /etc/skeel/ al directori /etc/esquelet. Edita l’arxiu /etc/esquelet/.profile i afegeix al final de l’arxiu la línia següent: echo “Benvingut \$USER a la sessió Ubuntu”. Quin efecte tindrà aquesta acció?}
+
+\textsc{Crea des de la línia de comandes, i en una única ordre, l’usuari asi1, amb les següents opcions:}
+
+\begin{itemize}
+\item Directori personal: /home/usuarioasi
+\item uid: 2500
+\item gid: 2600
+\item l’usuari asi1 ha d’estar inclòs en els grups “alumne” i “artesana”
+\item el campo comentari ha de contenir el comentari “alumne d’asi”
+\item directori esquelet: /etc/esquelet
+\item shell: sh
+\item contrasenya: alumne (l’has d’agafar de la contrasenya encriptada de l’arxiu /etc/shadow corresponent a l’usuari alumne) 
+\end{itemize}
+\textsc{Obre sessió d’usuari asi1 i comprova els resultats.}
+
+\textsc{25. Modifica des de la línia de comandes les següents opcions l’usuari asi1:}
+\begin{itemize}
+\item Directori personal: /home/asi
+\item uid: 3500
+\item gid: 3600
+\item l’usuari asi1 ha d’estar inclòs en els grups secundaris de dos alumnes de la classe
+\item en el campo comentari ha de contenir “alumne de tarda”
+\item directori esquelet: /etc/skel
+\item shell: bash
+\end{itemize}
+
+\textsc{26. Canvia el camp “gecos” de l’usuari asi1 amb la ordre chfn.}
+
+\textsc{27. Desa la línia de l’arxiu /etc/shadow corresponen a l’usuari asi1 en l’arxiu contrasenya.txt. Modifica des de la línia de comandes les següents opcions l’usuari asi1 referents a la política de contrasenyes:}
+
+\begin{itemize}
+\item Ha d’esperar 1 dia per poder tornar a canviar la contrasenya, després d’haver-la canviat prèviament.
+\item la contrasenya tindrà una validesa de 60 dies
+\item s’avisarà 7 dies abans que s’hagi de canviar
+\item disposarà de 2 dies per bloquejar la contrasenya després de que hagi caducat
+\end{itemize}
+
+\textsc{Torna a desar la línia de l’arxiu /etc/shadow corresponen a l’usuari asi1 en l’arxiu contrasenya.txt, mantenint el contingut anterior. Visualitza el canvis produïts en l’arxiu contrasenya.txt (/etc/shadow) i compara-la amb que havia previament.}
+
+\textsc{28. Elimina des de la línia de comandes un dels usuaris de la classe que ja no vingui o que s’hagi donat de baixa. S’esborren tots els arxius que són de la seva propietat?}
+
+\textsc{29. Quins són els efectes de les comandes pwconv i pwunconv sobre els arxius /etc/passwd i /etc/shadow}
+
+\textsc{30. Comprova la integritat dels arxius /etc/passwd i /etc/group.}
+
+\textsc{31. Crea el grup programadors. Assigna com grup principal del l’usuari asi1, el grup programador.}
 \end{document}
