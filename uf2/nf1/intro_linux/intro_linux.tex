@@ -1,0 +1,335 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{2}
+\newcommand{\ufnom}{Gestió de la informació i de recursos en una xarxa.}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Introducció a la consola de Linux}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small Eina Coma Bages}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.45\textheight]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\newpage
+\textsc{1. Ejecuta en una shell de Ubuntu. Explica la información contenida en el “prompt” de la shell de tu máquina Linux.}
+
+Veiem el nostre nom d'usuari (\texttt{eina}) i el nom de la màquina (\texttt{ubuntu}). També el directori actual (\texttt{\~}) i que estem en sessió d'usuari (\texttt{\$}).
+\mygraphic{imatges/1.png}
+
+\newpage
+\textsc{2. Muestra todas la shells disponibles en el sistema.}
+\mygraphic{imatges/2.png}
+
+\newpage
+\textsc{3. En Ubuntu, aparte del entorno visual, se puede trabajar, en un entorno de línea de comandos puro, sin interfaz gráfica asociada a él. Se utilizar hasta 6 pantallas de líneas de comandos, mediante la combinación de teclas “ctrl + alt + F1” (F2,…, F6). Puedes “logarte” en cualquiera de ellas y utilizarlas de forma simultánea.  Después puedes volver a la interfaz gráfica por medio de la combinación de teclas “ctrl + alt + F7” y “ctrl + alt + F8”.}
+\mygraphic{imatges/3.png}
+
+\newpage
+\textsc{4. Para ilustrar la sintaxis que utiliza el intérprete de comandos ejecuta en primer lugar la orden que te permite listar el contenido del directorio actual, es decir, sin parámetros ni argumentos. A continuación ejecuta la misma orden con un parámetro (por ejemplo, con el que se obtiene un listado largo). Por último, combina la orden junto con un parámetro y un argumento (por ejemplo, utiliza como argumento tu directorio de trabajo).}
+\mygraphic{imatges/4.png}
+
+\newpage
+\textsc{5. Utiliza la ayuda del manual “man” para conocer la sintaxis y funcionalidad de la orden “ls”. Almacena ésta información en el archivo “ls.txt”}
+\mygraphic{imatges/5.png}
+
+\newpage
+\textsc{6. Utiliza las pagines de información (info pages) aplicada a la orden “cat”. Almacena ésta información en el archivo “cat.info”. ¿Hay diferencias entre las paginas del manual y las pagines de información?}
+\mygraphic{imatges/6.png}
+
+\newpage
+\textsc{7. Utiliza el modificador --help aplicado a la orden “cat”. Almacena ésta información en el archivo “cat.help”. ¿Hay diferencias entre las páginas del manual y las pagines de información?}
+\mygraphic{imatges/7.png}
+
+
+\newpage
+\textsc{8. Practica los parámetros y argumentos para la orden “cal” que se muestran a continuación,  y explica las  funciones de cada uno de los parámetros y argumentos que la acompañan a la orden: \texttt{cal}, \texttt{cal 2013}, \texttt{cal 1 2012}, \texttt{cal -m 1 2013}, \texttt{cal -m3 1 2013}}
+
+\texttt{cal} sense cap altre paràmetre ni argument, mostra el calendari del més actual. Si li donem un argument, mostra el calendari d'aquell any i si n'hi donem dos (en el format \texttt{mes any}), mostra el calendari per aquell mes concret.
+
+L'ordre \texttt{cal} no estava instal·lada amb el paquet \texttt{util-linux} a Ubuntu, sinó que la proveeix el paquet \texttt{ncal}. La del paquet \texttt{ncal} té una sintaxi diferent a la d'\texttt{util-linux} i alguns paràmetres (com \texttt{-m} o \texttt{-3}) no tenen efecte.
+
+\mygraphic{imatges/8a.png}
+\mygraphic{imatges/8b.png}
+\mygraphic{imatges/8c.png}
+
+En canvi si ho executem en la màquina amfitriona (que té Arch Linux), \texttt{cal} sí que ve de \texttt{util-linux}.
+
+El paràmetre \texttt{-m} fa que la setmana comenci en dilluns. Per la configuració regional del meu sistema aquesta ja és l'opció per defecte, però amb \texttt{-s} podem fer que comenci en diumenge.
+
+L'altre paràmetre, \texttt{-3}, mostra tres mesos en comptes d'un, afegint al mes mostrat l'anterior i el següent.
+
+\mygraphic[width=\textwidth]{imatges/8d.png}
+
+\newpage
+\textsc{9. Envía por pantalla el mensaje "has pagado 360 euros de tasas". Después convierte ese texto, escrito en minúsculas, a texto en mayúsculas.}
+\mygraphic{imatges/9.png}
+
+\newpage
+\textsc{10. Algunas órdenes utilizadas para  visualizar archivos son: cat, less y more. Visualiza el archivo “ls.txt” con ésta órdenes. ¿Qué diferencias observas entre ellas?}
+
+\texttt{cat} imprimeix tot el text a la pantalla, \texttt{more} el va imprimint a mesura que vas baixant i \texttt{less} no l'imprimeix sinó que mostra només el fragment que càpiga dins la teva pantalla, permetent-te pujar i baixar.
+
+\mygraphic{imatges/10a.png}
+\mygraphic{imatges/10b.png}
+\mygraphic{imatges/10c.png}
+
+\newpage
+\textsc{11. Suponiendo que tengas 5 amigos (si no es así, te los puedes “fabricar” o inventar), crea un archivo, con la orden “cat” que contenga la información de esas 5 personas, con el siguiente formato (para cambiar de columna, usa el tabulador):
+apellido1, apellido2, nombre, edad, teléfono, e-mail}
+\mygraphic{imatges/11.png}
+
+\newpage
+\textsc{12. Visualiza el archivo agenda con la orden “cat”.}
+\mygraphic{imatges/12.png}
+
+\newpage
+\textsc{13. Cambia el nombre del archivo “agenda” por el de “amigos.txt”.}
+\mygraphic{imatges/13.png}
+
+\newpage
+\textsc{14. Visualiza el archivo amigos.txt ordenados alfabéticamente por el primer apellido y por la edad.}
+\mygraphic{imatges/14.png}
+
+\newpage
+\textsc{15. Visualiza en forma de árbol el contenido de tu directorio actual. Si no está disponible esta orden, instálala.}
+\mygraphic{imatges/15.png}
+
+\newpage
+\textsc{16. Visualiza en forma de árbol todo el contenido del sistema de archivos, desde la raíz del sistema. ¿Cuántos directorios y archivos tiene tu sistema? Si la salida de información tarda mucho puedes abortarla con un <ctrl+c>.}
+
+\mygraphic{imatges/16.png}
+
+\newpage
+\textsc{17. Crea una carpeta de nombre “Datos” en tu directorio personal.}
+
+\textsc{18. Trasládate al directorio Datos.}
+
+\textsc{19. Comprueba la ruta completa del directorio en el que te encuentras.}
+
+\textsc{20. Haz un listado completo del contenido de la carpeta en la que te encuentras, visualizando los directorios y archivos ocultos.}
+\mygraphic{imatges/17-20.png}
+
+\newpage
+\textsc{21. ¿Para qué sirve la opción “-a” del comando “ls”?}
+
+Mostra els fitxers ocults.
+
+\textsc{¿Qué caracteriza a los ficheros y directorios ocultos?}
+
+El seu nom comença amb un punt.
+
+\textsc{¿Cuál suele ser su utilidad?}
+
+Fitxers o directoris temporals, de configuració, logs, etc. 
+
+\textsc{¿Cómo puedes convertir un fichero o directorio “convencional” en un fichero oculto?}
+
+Afegint un punt al principi del nom.
+
+
+\textsc{¿Qué directorios ocultos han aparecido en tu carpeta “Datos” al teclear “ls -la”?}
+
+Han aparegut dos directoris. \texttt{.} que fa referència al directori actual i \texttt{..} que referencia al directori superior.
+
+\newpage
+\textsc{22. Antes de seguir trabajando con directorios, es importante distinguir la diferencia entre rutas absolutas y rutas relativas. Sitúate en el directorio raíz, y desde allí  dirígete al directorio “home” de alumno.}
+\mygraphic{imatges/22.png}
+
+\textsc{Explica la diferencia que hay entre los dos métodos, es decir, entre utilizar la ruta absoluta y ruta relativa, y porqué es diferente la orden “cd Escritorio” de la orden “cd /Escritorio”}
+
+La primera és relativa, és a dir, comença a comptar a partir del directori on s'executa: vas a la carpeta \texttt{Escritorio} que es troba a la carpeta on ets ara.
+
+L'altre és absoluta, i comença des de l'arrel del sistema. Amb \texttt{cd /Escritorio} aniràs a la carpeta \texttt{Escritorio} que es troba a l'arrel, és igual des d'on ho executis.
+
+\newpage
+\textsc{23. Vuelve al directorio “Datos”, y desde allí, copia el archivo “agenda.txt” situado en /home/alumne, al directorio “Datos”, utilizando rutas relativas y renombrándolo en directorio de destino como “amigos.txt”.}
+\mygraphic{imatges/23.png}
+
+\newpage
+\textsc{24. Sube un nivel en el árbol de directorios de nuestro sistema. Comprueba dónde te encuentras.}
+\mygraphic{imatges/24.png}
+
+\newpage
+\textsc{25. Haz una copia de seguridad del directorio “Datos”, con todo su contenido, y con nombre “Copia\_Datos”.}
+\mygraphic{imatges/25.png}
+
+\newpage
+\textsc{26. Añade los datos de un nuevo amigo al archivo “amigos.txt” del directorio “Datos”, sin utilizar ningún procesador de textos.}
+\mygraphic{imatges/26.png}
+
+\newpage
+\textsc{27. Extrae las 2 primeras líneas del archivo “amigos.txt”.}
+
+\textsc{28. Extrae las 2 últimas líneas del archivo “amigos.txt”.}
+\mygraphic{imatges/27-28.png}
+
+\newpage
+\textsc{29. Muestra el primer apellido y el teléfono de los amigos contenidos en el archivo “amigos.txt”.}
+\mygraphic{imatges/29.png}
+
+\newpage
+\textsc{30. Haz una copia de seguridad del archivo “amigos.txt”del directorio “Datos”, a la carpeta “Copia\_Datos”, pero renombrándolo a “mas\_amigos.txt”.}
+\mygraphic{imatges/30.png}
+
+\newpage
+\textsc{31. Compara las diferencias entre los archivos “amigos.txt” y “mas\_amigos.txt” del directorio “Copia\_Datos”.}
+\mygraphic{imatges/31.png}
+
+\newpage
+\textsc{32. Visualiza por pantalla el contenido del archivo “amigos.txt” pero convirtiendo su texto en mayúsculas. Crea un nuevo archivo llamado “AMIGOS.txt” con el mismo contenido que “amigos.txt”, pero con el texto en mayúsculas.}
+\mygraphic{imatges/32.png}
+
+\newpage
+\textsc{33. Compara las diferencias entre los archivos “amigos.txt”y “AMIGOS.txt”.}
+\mygraphic{imatges/33.png}
+
+\newpage
+\textsc{34. Concatena los archivos “amigos.txt”y “AMIGOS.txt” en un nuevo archivo llamado “amigos\_AMIGOS.txt” y visualízalo.}
+\mygraphic{imatges/34.png}
+
+\newpage
+\textsc{35. Borra el archivo “amigos.txt” del directorio “Copia\_Datos”.}
+\mygraphic{imatges/35.png}
+
+\newpage
+\textsc{36. Borra el directorio “Copia\_Datos” y todo su contenido con una única orden.}
+\mygraphic{imatges/36.png}
+
+\newpage
+\textsc{37. Obtén el número de líneas, palabras y caracteres del archivo “amigos.txt” del directorio “Datos”.}
+\mygraphic{imatges/37.png}
+
+\newpage
+\textsc{38. Obtén la línea del archivo “amigos.txt” del directorio “Datos”, que contiene el teléfono “9323382553”.}
+\mygraphic{imatges/38.png}
+
+\newpage
+\textsc{39. Obtén tantos archivos como líneas contiene el archivo amigos.txt. Cada nuevo archivo contendrá la información de un sólo amigo. Lista los nuevos archivos creados y visualiza el contenido de algunos de ellos.}
+\mygraphic{imatges/39.png}
+
+\newpage
+\textsc{40. ¿Qué tipo de archivo es “amigos.txt” para el sistema Ubuntu?}
+\mygraphic{imatges/40.png}
+
+\newpage
+\textsc{41. Borra el contenido de la pantalla}
+\mygraphic{imatges/41a.png}
+\mygraphic{imatges/41b.png}
+
+\newpage
+\textsc{42. Muestra la ubicación del archivo correspondiente a la orden “ls”.}
+
+\textsc{43. Muestra la descripción del archivo correspondiente a la orden “ls”.}
+\mygraphic{imatges/42-43.png}
+
+\newpage
+\textsc{44. Instala y ejecuta la aplicación “mc” (Midnight Commander). Explica para qué sirve ésta aplicación.}
+
+És un gestor gràfic de fitxers per la consola.
+\mygraphic{imatges/44a.png}
+\mygraphic{imatges/44b.png}
+
+\newpage
+\textsc{45. Sube un nivel en el árbol de directorios de nuestro sistema. Comprueba dónde estás. ¿Cuál es la finalidad de este directorio? ¿Qué carpetas cuelgan de éste directorio? ¿Qué usuarios “propios” (es decir, no para uso interno del sistema) hay en tu ordenador?}
+
+Només hi ha el meu usuari.
+\mygraphic{imatges/45.png}
+
+\newpage
+\textsc{46. Sigue ascendiendo por el árbol de directorios, y comprueba dónde estás.}
+
+\textsc{47. Repite la orden “cd ..” y vuelve a subir un nivel en el árbol de directorios de nuestro sistema. ¿Podemos seguir subiendo en el árbol de directorios?}
+
+Una vegada som a l'arrel del sistema ja no podem pujar més.
+\mygraphic{imatges/46-47.png}
+
+\newpage
+\textsc{48. Lista el contenido de todos los directorios que cuelgan del directorio raíz, y del  contenido de cada carpeta (listado recursivo).}
+\mygraphic{imatges/48.png}
+
+\newpage
+\textsc{49. Recupera los comandos que han sido usados en nuestra sesión y “vuelca” o redirige ésta información al archivo “comandos.txt”.}
+\mygraphic{imatges/49.png}
+
+\newpage
+\textsc{50. Visualiza el valor de las variables de entorno.}
+\mygraphic{imatges/50.png}
+
+\newpage
+\textsc{51. Redirige la salida de la orden “set” a un archivo de nombre “variables\_de\_entorno.txt”.}
+\mygraphic{imatges/51.png}
+
+\newpage
+\textsc{52. Utiliza la orden “ooffice variables\_de\_entorno.txt”. ¿Qué ha sucedido? ¿Qué programa se ha ejecutado? Comprueba el texto y cierra el programa.}
+
+S'obriria amb l'editor de text d'openoffice, però com que no tenim instal·lada aquesta suite de programes no ho pot fer i ens mostra un error.
+\mygraphic{imatges/52.png}
+
+\newpage
+\textsc{53. Utiliza ahora el programa de textos “gedit” para editar el archivo “variables\_de\_entorno.txt” ¿Qué programa se ha ejecutado? ¿Pertenece al entorno gráfico o a las aplicaciones del modo de línea? }
+
+S'obre amb l'editor de textos de GNOME, una aplicació gràfica.
+\mygraphic{imatges/53.png}
+
+\newpage
+\textsc{54. Anota el valor de las variables “SHELL”, “HOME”, “USER”, “PATH”, “PS1”, “HOSTNAME” y “LANG”, y explica qué significa cada una de ellas.}
+\mygraphic{imatges/54.png}
+\texttt{SHELL} és la shell per defecte de l'usuari, \texttt{HOME} el directori d'inici, \texttt{USER} el nom, \texttt{PATH} els direcotris on es busquen executables, \texttt{PS1} configura com es mostra la shell, \texttt{HOSTNAME} el nom de la màquina i \texttt{LANG} l'idioma.
+
+\newpage
+\textsc{55. Consulta los “alias” que están definidos en tu sistema. Define un alias llamado “listar” que te permita visualizar todos los archivos, en formato largo, con número de inodos, y de manera recursiva (es decir, que muestre el contenido de las subcarpetas que cuelguen del directorio actual)}
+\mygraphic{imatges/55.png}
+
+\newpage
+\textsc{56. Arranca una nueva Shell de las que tienes disponible en tu sistema. Observa la diferencia en el prompt del sistema y en las órdenes disponibles en la nueva shell.}
+
+\textsc{57. Abandona la Shell actual.}
+\mygraphic{imatges/56-57.png}
+
+\newpage
+\textsc{58. Muestra el tiempo transcurrido desde que iniciaste la sesión. }
+\mygraphic{imatges/58.png}
+
+\newpage
+\textsc{59. Reinicia el equipo }
+\mygraphic{imatges/59.png}
+
+\newpage
+\textsc{60. Apaga el equipo}
+\mygraphic{imatges/60.png}
+
+\end{document}
