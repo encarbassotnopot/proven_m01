@@ -21,7 +21,7 @@
 \newcommand{\ufnom}{Gestió de la informació i de recursos en una xarxa.}
 
 \newcommand{\acttipus}{Pràctica}
-\newcommand{\actnom}{Traducció d'un programa a script amb Python}
+\newcommand{\actnom}{Traducció d'un programa a script amb Powershell}
 
 \newcommand*{\autor}{Eina Coma Bages}
 
@@ -54,6 +54,7 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+\input{latex-listings-powershell.tex}
 \lstdefinestyle{mystyle} {
 	inputencoding=utf8/latin1,
 	backgroundcolor=\color{backcolour},
@@ -85,9 +86,9 @@
 
 \newpage
 \section{Traducció}
-\lstinputlisting[language=Python]{sumaParellSenar.py}
+\lstinputlisting[language=Powershell]{sumaParellSenar.ps1}
 
 \newpage
 \section{Demostració}
-\mygraphic{demo.png}
+%\mygraphic{demo.png}
 \end{document}

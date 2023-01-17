@@ -19,7 +19,7 @@ except ValueError:
 	sys.exit(2)
 
 
-if max < min:
+if not min < max:
 	print("El segon argument ha de ser més gran que el primer.")
 	sys.exit(3)
 
