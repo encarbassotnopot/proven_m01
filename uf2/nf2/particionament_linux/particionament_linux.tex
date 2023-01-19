@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{2}
+\newcommand{\ufnom}{Gestió de la informació i de recursos en una xarxa.}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Scripting en bash}
+
+\newcommand*{\autor}{Eina Coma Bages}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small\autor}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][width=\textwidth]{\begin{center}
+		\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+
+\newpage
+\textsc{1. Visualitza les particions del disc dur de la maquina virtual on s'ha instal\textperiodcentered lat Ubuntu, des d'un entorn gràfic i des de la línia de comandes. Visualitza les particions que el sistema ha muntat automàticament.}
+
+\newpage
+\textsc{2. Analitza l'espai dels dispositius presents (devices). Llistar l'espai total i el disponible de cada partició muntada, tot mostrant el sistema de fitxers que utilitza. Cal mostrar la informació en unitas K, M o G. Llistar només els sistemes de fitxers ext3. Llistar només els sistemes de fitxers virtuals. Quins són?}
+
+\newpage
+\textsc{3. Llista l'ocupació de l'espai de disc. Llistar (K, M o G) l'ocupació de disc de /boot. Llistar l'ocupació de disc de /etc resumint a un nivell de profunditat.}
+
+\newpage
+\textsc{4. Visualitza la informació de l'ordre “free” i l'ordre “stat” pel directori /etc i per l'arxiu /etc/fstab.}
+
+\newpage
+\textsc{5. Afegeix a la teva maquina virtual 3 disc durs sata de 10, 15 i 20 GB respectivament. Fes una captura de pantalla dels dispositius d' emmagatzematze i de les taules de particions de cadascun dels discs instal·lats.}
+
+\newpage
+\textsc{6. Utilitza la línia de comandes per fer dues particions primàries contigües en el primer disc sata (/dev/sdb). La primera partició de 3GB de capacitat i la segona de 4GB.}
+
+\newpage
+\textsc{7. Assigna l'etiqueta “particio\_linux” a la primera partició i l'etiqueta “particio\_windows” a la segona partició. Formata amb sistema d'arxius ext4 la primera partició (particio\_linux) i amb sistema d'arxius ntfs la segona partició (particio\_windows).}
+
+\newpage
+\textsc{8. Visualitza el contingut del directori /mnt. Munta la primera partició en aquest directori (/mnt). Visualitza novament el contingut del directori /mnt i afegeix un arxiu de text (prueba.txt). Si no pot fer-ho, afegeix-li els permisos de lectura, escriptura i execució per a tots el usuaris (sudo chmod 777 /mnt). Per últim, desmunta la partició.}
+
+\newpage
+\textsc{9. Comprova la integritat dels sistemes d'arxius de les dues particions del disc hdb, i del disc del sistema (hda).}
+
+\newpage
+\textsc{10. Visualitza el contingut del directori /mnt. Munta novament la primera partició en el directori (/mnt), i torna-la a muntar en calent, però en mode de “només lectura” (ro). Intenta crear un directori anomenat carpeta amb l'ordre mkdir, i llegeix l'arxiu Prueba amb l'ordre cat.}
+
+\newpage
+\textsc{11. Visualitza l'espai en els dispositius presents (devices).Llistar l'espai total i el disponible de cada partició muntada, tot mostrant el sistema de fitxers que utilitza.}
+
+\newpage
+\textsc{12. Llista els “swaps” actius. Crea una tercera partició primària en el disc sdb, de 1GB de capacitat, destinada a memòria virtual. Activa i desactiva el swap manualment.}
+
+\end{document}

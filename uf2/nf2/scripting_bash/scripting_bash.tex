@@ -21,7 +21,7 @@
 \newcommand{\ufnom}{Gestió de la informació i de recursos en una xarxa.}
 
 \newcommand{\acttipus}{Pràctica}
-\newcommand{\actnom}{Traducció d'un programa a script del bash}
+\newcommand{\actnom}{Scripting en bash}
 
 \newcommand*{\autor}{Eina Coma Bages}
 
@@ -55,7 +55,6 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle} {
-	inputencoding=utf8/latin1,
 	backgroundcolor=\color{backcolour},
 	commentstyle=\color{codegreen},
 	keywordstyle=\color{magenta},
@@ -80,14 +79,52 @@
 \include{portada.tex}
 
 \newpage
-\section{Programa Original}
-\lstinputlisting[language=Java]{sumaParellSenar.java}
+\textsc{1. Crea l'arxiu "sinfin" amb el següent contingut:}
+\begin{lstlisting}[language=bash]
+while true
+do
+echo "NO jugaré a los videojuegos en clase y sólo utilizaré el ordenador con fines académicos"
+sleep 3
+done
+\end{lstlisting}
+
+\textsc{Dona permisos d'execució al programa i executa'l. Este programa genera un bucle infinit.
+Executa el programa en primer pla. ¿Pots llistar el teu directori personal?}
+
+\mygraphic{imatges/1.png}
+No, no puc llistar-lo Amb el programa en primer pla.
+
+\textsc{Executa el programa en segon pla. ¿Pots llistar el tu directori personal? Como interrompre'l? Como passar-lo a segon pla? }
+
+Amb el programa en segon pla si que el podem llistar. Per interrompre el programa en primer pla, premem \texttt{Ctrl+C}, i per fer-ho quan està en segon pla executem \texttt{kill \%}. Per passar-lo de primer a segon pla, s'ha de premer \texttt{Ctrl+Z}
 
 \newpage
-\section{Traducció}
-\lstinputlisting[language=Bash]{sumaParellSenar.sh}
+\textsc{2. Fes un script que crea una carpeta principal anomenada “Qualitat” y crea 3 subcarpetes anomenades Q1,Q2 i Q3.}
+\lstinputlisting[language=Bash]{scripts/2.sh}
+\mygraphic{imatges/2.png}
 
 \newpage
-\section{Demostració}
-\mygraphic{demo.png}
+\textsc{3. Script que crea moltes carpetes en una. Volem un script que cree aquestes carpetes:
+\texttt{cicles=\{dam\{c1,c2\}, daw\{c1,c2\}, smx\{c1,c2\}, asix\{c1,c2\}, dawbio\{c1,c2\}\}}}
+\lstinputlisting[language=Bash]{scripts/3.sh}
+\mygraphic{imatges/3.png}
+
+\newpage
+\textsc{4. Script què, donat el nom d’una persona, mostra la salutació: \linebreak
+\texttt{Hola <nom>! \linebreak
+Avui és el dia <date>.}}
+\lstinputlisting[language=Bash]{scripts/4.sh}
+\mygraphic{imatges/4.png}
+
+\newpage
+\textsc{5. Script que donat un número retorne la seua taula multiplicar.}
+\lstinputlisting[language=Bash]{scripts/5.sh}
+\mygraphic{imatges/5.png}
+
+\newpage
+\textsc{6. Fes els exercicis 2 i 3, però amb la diferència que el primer paràmetre sigui el nom de la carpeta. Que surti un missatge si la carpeta ja existeix.}
+\lstinputlisting[language=Bash]{scripts/6-1.sh}
+\lstinputlisting[language=Bash]{scripts/6-2.sh}
+\mygraphic{imatges/6.png}
+
 \end{document}
