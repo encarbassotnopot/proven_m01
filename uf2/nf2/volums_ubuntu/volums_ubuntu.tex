@@ -1,0 +1,99 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[catalan,shorthands=off]{babel} % Patrons de trencament de paraula
+\usepackage{fancyhdr} % Per la capçalera
+\usepackage{geometry}
+\usepackage{graphicx} % Per importar logos (i altres gràfics)
+\usepackage[colorlinks,linkcolor=black]{hyperref} % Per fer que l'index tingui hiperlinks en el pdf
+\usepackage{indentfirst}
+\usepackage[sc,small]{titlesec} % Seccions personalitzades
+\usepackage{hhline}
+
+%% Títols
+\newcommand{\modulnum}{1}
+\newcommand{\modulnom}{Sistemes Informàtics}
+
+\newcommand{\ufnum}{2}
+\newcommand{\ufnom}{Gestió de la informació i de recursos en una xarxa.}
+
+\newcommand{\acttipus}{Pràctica}
+\newcommand{\actnom}{Gestió de Volums a Ubuntu}
+
+\newcommand*{\autor}{Eina Coma Bages}
+
+%% Entreliniats
+\linespread{1.5}
+
+%% Capçalera
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+\addtolength{\topmargin}{-20pt}
+\fancyhead[L]{\includegraphics*[height=35pt]{provencana_bw.pdf}}
+\fancyhead[R]{
+	{\scshape\scriptsize Mòdul \modulnum: \modulnom}\\
+	{\scshape\footnotesize \acttipus \space  - \actnom}\\
+	{\scshape\small\autor}}
+
+\addtolength{\textheight}{2cm}
+
+%% Comandes personalitzades
+\newcommand{\mygraphic}[2][height=0.45\textheight]{\begin{center}
+	\centering\includegraphics[#1]{#2}\par
+\end{center}}
+
+\renewcommand{\contentsname}{Índex}
+
+\begin{document}
+\include{portada.tex}
+
+\textsc{1. Mitjançant l'entorn gràfic, realitza les particions indicades a continuació en els dos discs durs que heu afegit. Mostreu les captures de pantalla del GParted que evidenciï la feina feta.}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Partició & Mida & Etiqueta & Sistema arxius \\ \hhline{|*{4}{=|}}
+		/dev/sdb1 & 4000MB & SATA1\_PP1 & ext4 \\ \hline
+		/dev/sdb2 & 5000MB & SATA1\_PP2 & ext4 \\ \hline
+		/dev/sdb3 & 6000MB & SATA1\_PP3 & ext4 \\ \hline
+		/dev/sdb4 & 7000MB & SATA1\_PP4 & ext4 \\ \hline
+		/dev/sdc1 & 8500 MB & sense etiqueta & sense sistema arxius \\ \hline
+		/dev/sdc2 & 9500 MB & sense etiqueta & sense sistema arxius \\ \hline
+		/dev/sdc3 & 10500 MB & sense etiqueta & sense sistema arxius \\ \hline
+		/dev/sdc5 & 1500 MB & sense etiqueta & sense sistema arxius \\ \hline
+		/dev/sdc6 & 2500 MB & sense etiqueta & sense sistema arxius \\ \hline
+	\end{tabular}
+\end{center}
+
+\textsc{2. Mostra per linia de comandes la informació de l'estructura de particionament de tots els disc durs que té el sistema.}
+
+\textsc{3. Mostra tots el sistemes d'arxius muntats  que té el sistema.}
+
+\textsc{4. Crea els volums físics, el grup de volums i els volums lògics que s'indica en  l'estructura de l'esquema que ve a continuació. Visualitza per pantalla cadascun dels tres elements LVM que has creat. Al grup de volum VG que has creat anomena'l "metahd\-\_cognom" (substitueix cognom pel teu primer cognom, en el meu cas, metahd\_serrano) i als volums lògics creats anomena'ls "LV1\_ cognom" i "LV2\_cognom" respectivament (igualment, substitueix cognom pel teu primer cognom). Escriu totes la seqüència d'ordres que evidenciï la feina feta. Instal·la el paquet id'administarció gràfica del VLM (system-config-lvm) i fes les captures de pantalla amb aquesta eina gràfica dels resultats obtingtus.}
+
+\textsc{5. Assigna el sistema de fitxers ext4 al primer volum lògic creat.}
+
+\textsc{6. Crea el directori VL1 dintre de la carpeta  /mnt. Fes el muntatge del primer volum lògic en el directori /mnt/VL1. Mostra tots els sistemes de fitxers que estan muntats al teu sistema, el grau d'ocupació que tenen, i l'estructura de particionament dels HDs.}
+
+\textsc{7. Utilitza el primer volum (/dev/metahd\_serrano/LV1\_serrano) per fer-hi alguna lectura i escriptura. Per exemple, crea un arxiu de text anomenat "document.txt" en el directori /mnt/VL1 (on està muntat el volum) i un directori anomenat "dir\_VL1". Visualitza el contigut de directori /mnt/VL1 i de l'arxiu "document.txt". Fes una captura de pantalla amb l'eina gràfica del VLM (system-config-lvm) del resultat final.}
+
+
+\textsc{8. Desmunta el volum lògic que havies muntat  al directori /mnt/VL1 i comprova si ara està  accessible l'arxiu "document.txt".  Visualitza per pantalla cadascun dels tres elements VLM i compara  amb la sortida que havies obtingut a la pregunta 1 i 4. Mostra els sistemes de fitxers que estan muntats al sistema.}
+
+\textsc{9. Observa en la sortida de l'ordre vgdisplay la linia "PE Size   4,00 MiB", que indica la extensió física (Physical Extend), en aquest cas de 4 MB.  Cada VG, i per tant, cada PV del que forma part, està format per seccions de anomenades PE, que és la unitat básica d'acces en LVM. Amplia el primer volum lògic en 768 PE (o sigui,en 3GB, ja que 768x4 MB= 3072MB = 3GB), i visualitza el resultat.  Després de l'ampliació del volum lògic (o abans de la reducció), si aquest volum té assignat un sistema de fitxers, cal que se'n redueixi la mida amb l'ordre resize2fs. Quin és la capacitat final del volum? Fes una captura de pantalla amb l'eina gràfica del VLM (system-config-lvm) del resultat final.}
+
+\textsc{10. Torna a muntar el primer volum lògic, després de la seva ampliació,  en el directori /mnt/VL1. Mostra tots el sistemes de fitxers que estan muntats en el teu sistema i el grau d'ocupació que tenen.}
+
+\textsc{11. Torna a redimensionar el primer volums lògic a 4GB de capacitat.  Després caldrà ajustar  la mida amb l'ordre resize2fs. Fes una captura de pantalla amb l'eina gràfica del VLM (system-config-lvm) del resultat final.}
+
+\textsc{12. Escaneja el volums físics, els grups de volums i els volums lògics del teu sistema.}
+
+\textsc{13. Afegeix al grup de volum " metahd\_cognom" , el volum físic "/dev/sdc3",  per tal de poder ampliar el segon volum lògic fins a 20GB de capacitat. Visualitza l'estat del grup de volum " metahd\_cognom" i dels volums lògics (LV1\_cognom i LV2\_cognom) abans i després de l'ampliació per tal de poder comparar-los.}
+
+\textsc{14. Assigna un sistema de fitxers ext4 al segon volum lògic, i visualitza la seva ocupació. Munta el segon volum lògic al directori /mnt/LV2. Crea l'arxiu  "document.txt",  i visualitza'l. Fes una captura de pantalla amb l'eina gràfica del VLM (system-config-lvm) del resultat final.}
+
+\textsc{15. Desmunta el segon volum lògic, comprova el sistema de fitxers, i per últim, redimensiona'l  a 10 GB de capacitat, i comprovant novament la seva mida.}
+
+\textsc{16. Elimina el segon volum lògic (LV2\_cognom) i  el volum físic "/dev/sdc3". Visualitza els canvis. Fes una captura de pantalla amb l'eina gràfica del VLM (system-config-lvm) del resultat final.}
+
+\newpage
+\end{document}
